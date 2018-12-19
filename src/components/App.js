@@ -5,6 +5,7 @@ import MovieContainer from './MovieContainer';
 import Login from './Login';
 import { Route, Switch } from 'react-router-dom'
 import {fetchMovies} from '../API'
+import apiKey from '../apiKey';
 
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const movies = await fetchMovies('https://api.themoviedb.org/3/discover/movie?api_key=54bf3c231b54b82591554916467249d8')
+    const movies = await fetchMovies(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`)
     this.setState({ movies })
   }
 
