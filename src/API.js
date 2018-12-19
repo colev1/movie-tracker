@@ -1,6 +1,5 @@
 import cleanMovies from './helper'
 
-
 export const fetchMovies = async (url) => {
   try {
     const response = await fetch(url)
@@ -11,21 +10,25 @@ export const fetchMovies = async (url) => {
   }
 }
 
-
 export const createUser = async (user) => {
   const url = 'http://localhost:3000/api/users/new'
   const allUsers = await fetchAllUsers()
-  
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-  } catch(err) {
-    console.log(err.message);
+  const matchingUser = allUsers.find(currUser => currUser.email === user.email )
+  if (matchingUser) {
+    return matchingUser
+  } else {
+      try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+       
+    } catch(err) {
+      console.log(err.message);
+    }
   }
 }
 

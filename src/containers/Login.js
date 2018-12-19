@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import * as API from '../API';
+import './Login.scss';
+import { loginUser } from '../actions'
+import { connect } from 'react-redux';
 
 class Login extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       email: '',
       password: '',
@@ -29,26 +32,35 @@ class Login extends Component {
     })
   }
 
-  handleNewUserSubmit = (e) => {
+  handleNewUserSubmit = async (e) => {
     e.preventDefault()
     const email = this.state.email.toLowerCase();
     const {name, password} = this.state;
     const user = {name, password, email}
-    API.createUser(user)
-    this.resetState()
+    const matchingUser = await API.createUser(user)
+    if (matchingUser) {
+      this.setState({
+        errorMessage: true
+      })
+    } else {
+      this.props.login(user.name)
+      this.resetState();
+      this.props.history.push('/');
+    }
   }
 
-  handleLoginSubmit = (e) => {
+  handleLoginSubmit = async (e) => {
     e.preventDefault()
     const email = this.state.email.toLowerCase();
     const {password} = this.state;
     const user = {password, email}
-    const matchedUser = API.loginUser(user)
+    const matchedUser = await API.loginUser(user)
     if (matchedUser === undefined) {
       this.setState({errorMessage: true})
     } else {
-      this.setState({matchedUser})
+      this.props.login(matchedUser.name)
       this.resetState()
+      this.props.history.push('/');
     }
   }
 
@@ -57,7 +69,6 @@ class Login extends Component {
       email: '',
       password: '',
       verifiedPassword: '',
-      newUser: false,
       name: ''
     })
   }
@@ -125,5 +136,8 @@ class Login extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  login: (username) => dispatch(loginUser(username))
+})
 
-export default Login;
+export default connect(null, mapDispatchToProps)(Login)
