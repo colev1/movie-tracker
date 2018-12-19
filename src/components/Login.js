@@ -9,7 +9,9 @@ class Login extends Component {
       password: '',
       verifiedPassword: '',
       newUser: false,
-      name: ''
+      name: '',
+      matchedUser: '',
+      errorMessage: false
     }
   }
 
@@ -41,8 +43,13 @@ class Login extends Component {
     const email = this.state.email.toLowerCase();
     const {password} = this.state;
     const user = {password, email}
-    API.loginUser(user)
-    this.resetState()
+    const matchedUser = API.loginUser(user)
+    if (matchedUser === undefined) {
+      this.setState({errorMessage: true})
+    } else {
+      this.setState({matchedUser})
+      this.resetState()
+    }
   }
 
   resetState = () => {
@@ -55,11 +62,14 @@ class Login extends Component {
     })
   }
 
+
+
   render() {
     const { email, password, verifiedPassword, name } = this.state;
     if (!this.state.newUser) {
       return (
         <section>
+          <div className={this.state.errorMessage ? 'show-error' : 'hide-error'}>E-Mail and Password do not match</div>
           <form onSubmit={this.handleLoginSubmit}>
             <input
               type="text"
@@ -84,6 +94,7 @@ class Login extends Component {
     } else {
       return (
         <section>
+          <div className={this.state.errorMessage ? 'show-error' : 'hide-error'}>E-Mail already exists</div>
           <form onSubmit={this.handleNewUserSubmit}>
             <input
               type="text"
@@ -101,16 +112,9 @@ class Login extends Component {
             />
             <input
               type="text"
-              placeholder="Desired Password"
+              placeholder="Password"
               value={password}
               name="password"
-              onChange={this.handleChange}
-            />
-            <input
-              type="text"
-              placeholder="Verify Password"
-              value={verifiedPassword}
-              name="verifiedPassword"
               onChange={this.handleChange}
             />
             <button>Submit</button>
