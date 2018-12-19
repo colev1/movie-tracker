@@ -4,7 +4,7 @@ import Nav from './Nav';
 import MovieContainer from './MovieContainer';
 import Login from './Login';
 import { Route, Switch } from 'react-router-dom'
-import fetchMovies from '../API'
+import {fetchMovies} from '../API'
 
 
 class App extends Component {
