@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as API from '../API';
 
 class Login extends Component {
   constructor() {
@@ -7,11 +8,13 @@ class Login extends Component {
       email: '',
       password: '',
       verifiedPassword: '',
-      newUser: false
+      newUser: false,
+      name: ''
     }
   }
 
   displayNewUserForm = () => {
+    this.resetState()
     this.setState({
       newUser: true
     })
@@ -24,12 +27,40 @@ class Login extends Component {
     })
   }
 
+  handleNewUserSubmit = (e) => {
+    e.preventDefault()
+    const email = this.state.email.toLowerCase();
+    const {name, password} = this.state;
+    const user = {name, password, email}
+    API.createUser(user)
+    this.resetState()
+  }
+
+  handleLoginSubmit = (e) => {
+    e.preventDefault()
+    const email = this.state.email.toLowerCase();
+    const {password} = this.state;
+    const user = {password, email}
+    API.loginUser(user)
+    this.resetState()
+  }
+
+  resetState = () => {
+    this.setState({
+      email: '',
+      password: '',
+      verifiedPassword: '',
+      newUser: false,
+      name: ''
+    })
+  }
+
   render() {
-    const { email, password, verifiedPassword } = this.state;
+    const { email, password, verifiedPassword, name } = this.state;
     if (!this.state.newUser) {
       return (
         <section>
-          <form>
+          <form onSubmit={this.handleLoginSubmit}>
             <input
               type="text"
               placeholder="E-Mail"
@@ -53,7 +84,14 @@ class Login extends Component {
     } else {
       return (
         <section>
-          <form>
+          <form onSubmit={this.handleNewUserSubmit}>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              name="name"
+              onChange={this.handleChange}
+            />
             <input
               type="text"
               placeholder="E-Mail"
