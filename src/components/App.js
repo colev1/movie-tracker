@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Nav from './Nav';
+import Nav from '../containers/Nav';
 import MovieContainer from './MovieContainer';
-import Login from './Login';
+import Login from '../containers/Login';
 import { Route, Switch } from 'react-router-dom'
 import {fetchMovies} from '../API'
 import apiKey from '../apiKey';

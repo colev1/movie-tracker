@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import * as API from '../API';
 import './Login.scss';
+import { loginUser } from '../actions'
+import { connect } from 'react-redux';
 
 class Login extends Component {
   constructor(props) {
     super(props)
-    console.log(props.history);
     this.state = {
       email: '',
       password: '',
@@ -37,12 +38,12 @@ class Login extends Component {
     const {name, password} = this.state;
     const user = {name, password, email}
     const matchingUser = await API.createUser(user)
-    console.log(matchingUser)
     if (matchingUser) {
       this.setState({
         errorMessage: true
       })
     } else {
+      this.props.login(user.name)
       this.resetState();
       this.props.history.push('/');
     }
@@ -57,7 +58,7 @@ class Login extends Component {
     if (matchedUser === undefined) {
       this.setState({errorMessage: true})
     } else {
-      this.setState({matchedUser})
+      this.props.login(matchedUser.name)
       this.resetState()
       this.props.history.push('/');
     }
@@ -135,5 +136,8 @@ class Login extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  login: (username) => dispatch(loginUser(username))
+})
 
-export default Login;
+export default connect(null, mapDispatchToProps)(Login)

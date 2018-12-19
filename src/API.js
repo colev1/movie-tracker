@@ -1,6 +1,5 @@
 import cleanMovies from './helper'
 
-
 export const fetchMovies = async (url) => {
   try {
     const response = await fetch(url)
@@ -10,7 +9,6 @@ export const fetchMovies = async (url) => {
     console.log(err.message)
   }
 }
-
 
 export const createUser = async (user) => {
   const url = 'http://localhost:3000/api/users/new'
