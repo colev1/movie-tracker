@@ -3,7 +3,6 @@ import Card from '../components/Card'
 import { connect } from 'react-redux'
 import './MovieContainer.scss'
 
-
 const MovieContainer = (props) => {
   console.log(props.movies)
   const movies = props.movies.map(movie => {

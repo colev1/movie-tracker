@@ -6,7 +6,7 @@ const Card = (props) => {
   return (
     <div className="movie-card">
       <article className="card-text">
-        <h1>{props.movie.title}</h1>
+        <h1 className="movie-title">{props.movie.title}</h1>
         <p> {props.movie.overview} </p>
       </article>
       <article className='poster'>

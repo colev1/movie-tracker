@@ -9,7 +9,7 @@ const cleanMovies = (movies) => {
       overview,
       original_language,
       popularity,
-      genre_ids
+      genre_ids,
     })
   })
 }
