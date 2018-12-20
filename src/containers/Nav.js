@@ -6,7 +6,6 @@ import './Nav.scss';
 
 
 const Nav = (props) => {
-  console.log(props)
   return (
     <header>
       <h4> 

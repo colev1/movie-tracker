@@ -33,11 +33,10 @@ class Login extends Component {
 
   handleNewUserSubmit = async (e) => {
     e.preventDefault()
-    const email = this.state.email.toLowerCase();
-    const {name, password} = this.state;
+    const { name, password, email } = this.state;
     const user = {name, password, email}
-    const matchingUser = await API.createUser(user)
-    if (matchingUser) {
+    const userValid = await API.createUser(user)
+    if (!userValid) {
       this.setState({
         errorMessage: true
       })
@@ -53,11 +52,11 @@ class Login extends Component {
     const email = this.state.email.toLowerCase();
     const {password} = this.state;
     const user = {password, email}
-    const matchedUser = await API.loginUser(user)
-    if (matchedUser === undefined) {
+    const userObject = await API.loginUser(user)
+    if (!userObject) {
       this.setState({errorMessage: true})
     } else {
-      this.props.login(matchedUser.name)
+      this.props.login(userObject.name)
       this.resetState()
       this.props.history.push('/');
     }
