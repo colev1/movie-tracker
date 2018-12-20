@@ -10,7 +10,7 @@ export const fetchMovies = async (url) => {
   }
 }
 
-export const addFavorite = async (movie, uid) => {
+export const postFavorite = async (movie, uid) => {
   const url = 'http://localhost:3000/api/users/favorites/new';
   try {
     const response = await fetch(url, {

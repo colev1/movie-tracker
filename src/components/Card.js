@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './Card.scss'
 import {connect} from 'react-redux';
-import {addFavorite} from '../API';
+import {postFavorite} from '../API';
+import { addFavorite } from '../actions'
+
 
 class Card extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class Card extends Component {
   }
   
   handleAddFavorite = () => {
-    console.log('hello')
+    postFavorite(this.props.movie, this.props.user.id);
+    this.props.addFavorite(this.props.movie);
   }
 
   render() {
@@ -22,7 +25,7 @@ class Card extends Component {
           disabled={loggedIn} 
           onClick={this.handleAddFavorite}
           data-tooltip={loggedIn ? 'Must be signed in to favorite movies' : null}
-          onClick={() => addFavorite(this.props.movie, this.props.user.id)}>
+        >
             Favorite
         </button>
         <article className="card-text">
@@ -45,7 +48,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addFavorite: () => dispatch(addFavorite())
+  addFavorite: (favorite) => dispatch(addFavorite(favorite))
 })
 
-export default connect(mapStateToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

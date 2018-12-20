@@ -18,9 +18,9 @@ export const addMovies = (movies) => {
   }
 }
 
-// export const addFavorite = (favorite) => {
-//   return {
-//     type: 'ADD_FAVORITE',
-//     favorite
-//   }
-// }
+export const addFavorite = (favorite) => {
+  return {
+    type: 'ADD_FAVORITE',
+    favorite
+  }
+}
