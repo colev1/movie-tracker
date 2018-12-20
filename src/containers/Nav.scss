@@ -9,8 +9,9 @@ header {
   color: white;
   height: 15vh;
   font-family: Arial, Helvetica, sans-serif;
-  box-shadow: #500000 6px 6px 30px;
+  box-shadow: #ba0000 6px 6px 30px;
   position: fixed;
+  z-index: 2;
   width: 100%;
   top: 0px;
 }
