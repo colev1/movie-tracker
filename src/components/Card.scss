@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Acme');
+$acme-font: 'Acme', sans-serif;
+
+.card-text {
+  display: none;
+  position: absolute;
+  z-index:  4;
+}
+
+
+.movie-card {
+  font-family: $acme-font;
+  height: 440px;
+  width: 300px;
+  overflow: hidden;
+  color: white;
+  box-shadow: 4px 6px 6px rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  transition-duration: 0.6s;
+  margin: 20px;
+  &:hover {
+    height: 440px *1.1;
+    width: 300px*1.1;
+    transform: translateY(-50px);
+    transition-duration: 0.4s;
+    cursor: pointer;
+    img {
+      filter: blur(8px); 
+    }
+    .card-text {
+      display: unset;
+      position: absolute;
+      left: 0;
+      margin: 16px;
+    }
+  }
+}
+
+h1 {
+
+}
+
+.poster {
+  margin-top: -20px;
+  img {
+    width: 100%;
+  }
+}
+
+
