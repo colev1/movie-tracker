@@ -13,7 +13,6 @@ class Login extends Component {
       verifiedPassword: '',
       newUser: false,
       name: '',
-      matchedUser: '',
       errorMessage: false
     }
   }
@@ -72,7 +71,6 @@ class Login extends Component {
       name: ''
     })
   }
-
 
 
   render() {
