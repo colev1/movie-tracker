@@ -71,5 +71,8 @@ $acme-font: 'Acme', sans-serif;
   &:hover:disabled {
     transform: scale(1);
   }
+}
 
+.favorite-movie {
+  background-color: goldenrod;
 }

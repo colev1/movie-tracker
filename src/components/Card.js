@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import { postFavorite, deleteFavorite } from '../API';
 import { addFavorite, deleteFavoriteFromStore } from '../actions';
 
-
 class Card extends Component {
   constructor(props) {
     super(props)
@@ -15,6 +14,7 @@ class Card extends Component {
     const matchingFavorite = favorites.find(faveMovie => {
       return faveMovie.movie_id === movie.movie_id
     })
+    
     if(!matchingFavorite) {
       postFavorite(movie, user.id);
       this.props.addFavorite(movie);
@@ -24,13 +24,19 @@ class Card extends Component {
       this.props.deleteFavoriteFromStore(movie)
     }
   }
-
+  
   render() {
+
+    const faves = this.props.favorites.find(fave => {
+      return fave.movie_id === this.props.movie.movie_id
+    })
+    let favoriteClass = faves ? 'favorite-movie favorite-btn' : 'favorite-btn';
+
     let loggedIn = this.props.user ? false : true;
     const posterPath = `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
     return (
       <div className="movie-card">
-        <button className="favorite-btn" 
+        <button className={favoriteClass}
           disabled={loggedIn} 
           onClick={this.toggleFavorite}
           data-tooltip={loggedIn ? 'Must be signed in to favorite movies' : null}
