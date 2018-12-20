@@ -77,9 +77,10 @@ class Login extends Component {
     const { email, password, verifiedPassword, name } = this.state;
     if (!this.state.newUser) {
       return (
-        <section>
+        <section className="login-container">
+          <h2>Welcome back!</h2>
           <div className={this.state.errorMessage ? 'show-error' : 'hide-error'}>E-Mail and Password do not match</div>
-          <form onSubmit={this.handleLoginSubmit}>
+          <form onSubmit={this.handleLoginSubmit} className="login-form">
             <input
               type="text"
               placeholder="E-Mail"
@@ -94,17 +95,20 @@ class Login extends Component {
               name="password"
               onChange={this.handleChange}
             />
-            <button>Submit</button>
+            <button className="login-submit-btn">Submit</button>
           </form>
-          <label>New to Movie Tracker?</label>
-          <button onClick={this.displayNewUserForm}>Sign Up!</button>
+          <div className="signup-prompt">
+            <label>Or are you new to Movie Tracker?</label>
+            <button onClick={this.displayNewUserForm}>Sign Up!</button>
+          </div>
         </section>
       )
     } else {
       return (
-        <section>
+        <section className="login-container">
+          <h2>Get ready to become a professional TRACKER!</h2>
           <div className={this.state.errorMessage ? 'show-error' : 'hide-error'}>E-Mail already exists</div>
-          <form onSubmit={this.handleNewUserSubmit}>
+          <form onSubmit={this.handleNewUserSubmit} className="login-form">
             <input
               type="text"
               placeholder="Name"
@@ -126,7 +130,7 @@ class Login extends Component {
               name="password"
               onChange={this.handleChange}
             />
-            <button>Submit</button>
+            <button className="login-submit-btn">Submit</button>
           </form>
         </section>
       )
