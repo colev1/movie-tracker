@@ -18,9 +18,9 @@ $acme-font: 'Acme', sans-serif;
   transition-duration: 0.4s;
   width: 300px;
   &:hover {
-    height: 440px *1.1;
+    // height: 440px *1.1;
     width: 300px*1.1;
-    transform: translateY(-20px);
+    transform: scaleY(1.1);
     transition-duration: 0.4s;
     cursor: pointer;
     img {
