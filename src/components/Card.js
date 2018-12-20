@@ -1,28 +1,46 @@
 import React, { Component } from 'react';
 import './Card.scss'
 import {connect} from 'react-redux';
-import {addFavorite} from '../API';
+import { postFavorite, deleteFavorite } from '../API';
+import { addFavorite, deleteFavoriteFromStore } from '../actions';
 
 class Card extends Component {
   constructor(props) {
     super(props)
   }
   
-  handleAddFavorite = () => {
-    console.log('hello')
+  toggleFavorite = () => {
+    const {movie, user, favorites} = this.props;
+    const matchingFavorite = favorites.find(faveMovie => {
+      return faveMovie.movie_id === movie.movie_id
+    })
+    
+    if(!matchingFavorite) {
+      postFavorite(movie, user.id);
+      this.props.addFavorite(movie);
+    } else {
+      console.log(movie.movie_id, user.id)
+      deleteFavorite(user.id, movie.movie_id);
+      this.props.deleteFavoriteFromStore(movie)
+    }
   }
-
+  
   render() {
+
+    const faves = this.props.favorites.find(fave => {
+      return fave.movie_id === this.props.movie.movie_id
+    })
+    let favoriteClass = faves ? 'favorite-movie favorite-btn' : 'favorite-btn';
+
     let loggedIn = this.props.user ? false : true;
     const posterPath = `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
-    console.log('cards props:', this.props)
     return (
       <div className="movie-card">
-        <button className="favorite-btn" 
+        <button className={favoriteClass}
           disabled={loggedIn} 
-          onClick={this.handleAddFavorite}
+          onClick={this.toggleFavorite}
           data-tooltip={loggedIn ? 'Must be signed in to favorite movies' : null}
-          onClick={() => addFavorite(this.props.movie, this.props.user.id)}>
+        >
             Favorite
         </button>
         <article className="card-text">
@@ -37,15 +55,15 @@ class Card extends Component {
   }
 }
 
-
-
 const mapStateToProps = (state) => ({
   user: state.user,
-  movies: state.movies
+  movies: state.movies,
+  favorites: state.favorites
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addFavorite: () => dispatch(addFavorite())
+  addFavorite: (favorite) => dispatch(addFavorite(favorite)),
+  deleteFavoriteFromStore: (favorite) => dispatch(deleteFavoriteFromStore(favorite))
 })
 
-export default connect(mapStateToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

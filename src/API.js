@@ -10,7 +10,7 @@ export const fetchMovies = async (url) => {
   }
 }
 
-export const addFavorite = async (movie, uid) => {
+export const postFavorite = async (movie, uid) => {
   const url = 'http://localhost:3000/api/users/favorites/new';
   try {
     const response = await fetch(url, {
@@ -69,5 +69,30 @@ export const fetchAllUsers = async () => {
     return data.data
   } catch(err) {
     console.log(err.message);
+  }
+}
+
+export const fetchFavorites = async (userId) => {
+  const url = `http://localhost:3000/api/users/${userId}/favorites`;
+  try {
+    const response = await fetch(url)
+    const result = await response.json()
+    return result.data
+  } catch(err) {
+    console.log(err.message)
+  }
+}
+
+export const deleteFavorite = async (userId, movieId) => {
+  const url = `http://localhost:3000/api/users/${userId}/favorites/${movieId}`;
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE'
+    })
+    const result = await response.json()
+    console.log(result)
+    return result;
+  } catch(err) {
+    console.log(err.message)
   }
 }

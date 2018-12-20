@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as API from '../API';
 import './Login.scss';
-import { loginUser } from '../actions'
+import { loginUser, addFavorites } from '../actions';
 import { connect } from 'react-redux';
 
 class Login extends Component {
@@ -56,8 +56,10 @@ class Login extends Component {
     if (!userObject) {
       this.setState({errorMessage: true})
     } else {
-      this.props.login({name: userObject.name, id: userObject.id})
-      this.resetState()
+      this.props.login({name: userObject.name, id: userObject.id});
+      const favorites = await API.fetchFavorites(userObject.id);
+      this.props.addFavorites(favorites);
+      this.resetState();
       this.props.history.push('/');
     }
   }
@@ -138,7 +140,8 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  login: (username) => dispatch(loginUser(username))
+  login: (username) => dispatch(loginUser(username)),
+  addFavorites: (favorites) => dispatch(addFavorites(favorites)) 
 })
 
 export default connect(null, mapDispatchToProps)(Login)

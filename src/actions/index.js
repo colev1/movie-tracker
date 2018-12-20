@@ -18,9 +18,23 @@ export const addMovies = (movies) => {
   }
 }
 
-// export const addFavorite = (favorite) => {
-//   return {
-//     type: 'ADD_FAVORITE',
-//     favorite
-//   }
-// }
+export const addFavorite = (favorite) => {
+  return {
+    type: 'ADD_FAVORITE',
+    favorite
+  }
+}
+
+export const deleteFavoriteFromStore = (favorite) => {
+  return {
+    type: 'REMOVE_FAVORITE',
+    favorite
+  }
+}
+
+export const addFavorites = (favorites) => {
+  return {
+    type: 'ADD_FAVORITES',
+    favorites
+  }
+}

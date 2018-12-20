@@ -15,7 +15,7 @@ $acme-font: 'Acme', sans-serif;
   font-family: $acme-font;
   height: 450px;
   margin: 20px;  
-  overflow: hidden;
+  overflow: scroll;
   transition-duration: 0.4s;
   width: 300px;
   &:hover {
@@ -71,5 +71,8 @@ $acme-font: 'Acme', sans-serif;
   &:hover:disabled {
     transform: scale(1);
   }
+}
 
+.favorite-movie {
+  background-color: goldenrod;
 }

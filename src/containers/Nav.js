@@ -12,7 +12,10 @@ const Nav = (props) => {
         {props.user.name}
       </h4>
       <NavLink to='/favorites'><button>My Favorites</button></NavLink>
-      <NavLink to='/'><h1 className="logo">Movie <i class="fas fa-film"></i> Tracker</h1></NavLink>
+      <NavLink to='/'>
+        <h1 className="logo">Movie 
+        <i className="fas fa-film"></i> Tracker</h1>
+      </NavLink>
       { props.user.name ? <NavLink to='/'><button onClick={props.logout}>Sign Out</button></NavLink> : <NavLink to='/login'><button>Login/Signup</button></NavLink> }
     </header>
   )
