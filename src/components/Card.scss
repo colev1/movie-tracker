@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Acme');
+$acme-font: 'Acme', sans-serif;
+
+.card-text {
+  display: none;
+  position: absolute;
+  z-index:  4;
+}
+
+.movie-card {
+  border-radius: 2px;
+  box-shadow: 4px 6px 6px rgba(255, 255, 255, 0.6);
+  color: white;
+  font-family: $acme-font;
+  height: 450px;
+  margin: 20px;  
+  overflow: hidden;
+  transition-duration: 0.4s;
+  width: 300px;
+  &:hover {
+    // height: 440px *1.1;
+    width: 300px*1.1;
+    transform: scaleY(1.1);
+    transition-duration: 0.4s;
+    cursor: pointer;
+    img {
+      filter: blur(16px); 
+    }
+    .card-text {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      margin: 16px;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+}
+
+.movie-title {
+  font-size: 36px;
+  -webkit-text-stroke-width: .1px;
+  -webkit-text-stroke-color: black;
+}
+
+.poster {
+  img {
+    width: 100%;
+  }
+}
