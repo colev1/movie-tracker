@@ -10,3 +10,10 @@ export const logout = () => {
     type: 'LOGOUT_USER'
   }
 }
+
+export const addMovies = (movies) => {
+  return {
+    type: 'ADD_MOVIES',
+    movies
+  }
+}
