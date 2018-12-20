@@ -24,3 +24,17 @@ export const addFavorite = (favorite) => {
     favorite
   }
 }
+
+export const deleteFavoriteFromStore = (favorite) => {
+  return {
+    type: 'REMOVE_FAVORITE',
+    favorite
+  }
+}
+
+export const addFavorites = (favorites) => {
+  return {
+    type: 'ADD_FAVORITES',
+    favorites
+  }
+}
