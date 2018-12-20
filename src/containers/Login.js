@@ -34,14 +34,14 @@ class Login extends Component {
   handleNewUserSubmit = async (e) => {
     e.preventDefault()
     const { name, password, email } = this.state;
-    const user = {name, password, email}
+    const user = {name, email, password}
     const userValid = await API.createUser(user)
     if (!userValid) {
       this.setState({
         errorMessage: true
       })
     } else {
-      this.props.login(user.name)
+      this.props.login({name: user.name, id: userValid})
       this.resetState();
       this.props.history.push('/');
     }
@@ -56,7 +56,7 @@ class Login extends Component {
     if (!userObject) {
       this.setState({errorMessage: true})
     } else {
-      this.props.login(userObject.name)
+      this.props.login({name: userObject.name, id: userObject.id})
       this.resetState()
       this.props.history.push('/');
     }

@@ -10,6 +10,23 @@ export const fetchMovies = async (url) => {
   }
 }
 
+export const addFavorite = async (movie, uid) => {
+  const url = 'http://localhost:3000/api/users/favorites/new';
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({...movie, user_id: uid})
+    })
+    const result = await response.json();
+    return result;
+  } catch(err) {
+    console.log(err)
+  }
+}
+
 export const createUser = async (user) => {
   const url = 'http://localhost:3000/api/users/new'
     try {
@@ -20,7 +37,8 @@ export const createUser = async (user) => {
       },
       body: JSON.stringify(user)
     })
-    return response.ok
+    const newUser = await response.json();
+    return newUser.id
   } catch(err) {
     console.log('error:', err)
   }

@@ -56,3 +56,20 @@ $acme-font: 'Acme', sans-serif;
     width: 100%;
   }
 }
+
+
+.favorite-btn {
+  position: absolute;
+  z-index: 5;
+  left: 200px;
+  top: 9px;
+
+  &:disabled {
+    background-color: grey;
+  }
+
+  &:hover:disabled {
+    transform: scale(1);
+  }
+
+}
