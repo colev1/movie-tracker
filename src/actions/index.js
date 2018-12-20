@@ -1,7 +1,7 @@
-export const loginUser = (username) => {
+export const loginUser = (userObject) => {
   return {
     type: 'LOGIN_USER',
-    username
+    userObject
   }
 }
 
@@ -17,3 +17,10 @@ export const addMovies = (movies) => {
     movies
   }
 }
+
+// export const addFavorite = (favorite) => {
+//   return {
+//     type: 'ADD_FAVORITE',
+//     favorite
+//   }
+// }

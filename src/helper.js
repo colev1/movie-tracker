@@ -1,8 +1,10 @@
 const cleanMovies = (movies) => {
   return movies.map(movie => {
-    const { title, backdrop_path, poster_path, overview, original_language, popularity, id, genre_ids} = movie
+    const { title, backdrop_path, poster_path, overview, 
+            original_language, popularity, id, genre_ids, 
+            release_date, vote_average} = movie
     return ({
-      id,
+      movie_id: id,
       title, 
       backdrop_path,
       poster_path,
@@ -10,8 +12,10 @@ const cleanMovies = (movies) => {
       original_language,
       popularity,
       genre_ids,
+      release_date,
+      vote_average
     })
   })
 }
 
-export default cleanMovies
+export default cleanMovies;

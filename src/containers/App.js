@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import './App.css';
 import Nav from './Nav';
 import MovieContainer from './MovieContainer';
 import Login from './Login';
