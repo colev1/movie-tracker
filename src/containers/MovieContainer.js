@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Card from '../components/Card'
 import { connect } from 'react-redux'
+import './MovieContainer.scss';
 
 
 const MovieContainer = (props) => {
@@ -9,7 +10,7 @@ const MovieContainer = (props) => {
   })
 
   return (
-    <div>
+    <div className="container">
       { movies }
     </div>
   )

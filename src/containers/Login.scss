@@ -1,3 +1,59 @@
 .hide-error {
   display: none
 }
+
+.login-container {
+  position: relative;
+  top: 250px;
+  border: 2px solid black;
+  width: 45%;
+  margin: 0 auto;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ba0000;
+  color: white;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: 2px 2px black;
+}
+
+.login-form {
+  position: relative;
+  color: pink;
+  margin: 30px;
+  top: -20px;
+  width: 100%;
+}
+
+input {
+  margin: 10px;
+  border: 2px solid black;
+  padding: 5px 5px;
+  width: 130px;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  outline: none;
+
+  &:focus {
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+  }
+}
+
+.signup-prompt {
+
+}
+
+label {
+  margin: 0 16px;
+  font-size: 16px;
+}
+
+.login-submit-btn {
+  margin-left: 15px;
+}
