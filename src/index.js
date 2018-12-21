@@ -26,3 +26,22 @@ ReactDOM.render(router, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var searchDiv = document.querySelector('.search-bar-div');
+
+// Get the offset position of the navbar
+var sticky = searchDiv.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    searchDiv.classList.add("sticky")
+  } else {
+    searchDiv.classList.remove("sticky");
+  }
+}

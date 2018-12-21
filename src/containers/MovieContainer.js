@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Card from '../components/Card'
 import { connect } from 'react-redux'
 import './MovieContainer.scss'
+import SearchBar from './SearchBar'
 
 const MovieContainer = (props) => {
   let displayedMovies;
@@ -15,6 +16,7 @@ const MovieContainer = (props) => {
   })
   return (
     <div className="movie-container">
+      <SearchBar />
       { movies }
     </div>
   )
