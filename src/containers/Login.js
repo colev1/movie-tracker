@@ -73,7 +73,6 @@ class Login extends Component {
     })
   }
 
-
   render() {
     const { email, password, verifiedPassword, name } = this.state;
     if (!this.state.newUser) {
@@ -83,7 +82,7 @@ class Login extends Component {
           <div className={this.state.errorMessage ? 'show-error' : 'hide-error'}>E-Mail and Password do not match</div>
           <form onSubmit={this.handleLoginSubmit} className="login-form">
             <input
-              type="text"
+              type="email"
               placeholder="E-Mail"
               value={email}
               name="email"

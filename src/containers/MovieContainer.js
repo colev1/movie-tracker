@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Card from '../components/Card'
 import { connect } from 'react-redux'
 import './MovieContainer.scss'
@@ -20,7 +20,7 @@ const MovieContainer = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies,
   favorites: state.favorites
 })
