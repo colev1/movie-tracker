@@ -1,6 +1,9 @@
 import cleanMovies from './helper'
+import apiKey from './apiKey';
 
-export const fetchMovies = async (url) => {
+export const fetchMovies = async (page) => {
+  let selectedPage = page || 1;
+  let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=${selectedPage}`
   try {
     const response = await fetch(url)
     const result = await response.json()
