@@ -93,9 +93,25 @@ export const deleteFavorite = async (userId, movieId) => {
       method: 'DELETE'
     })
     const result = await response.json()
-    console.log(result)
     return result;
   } catch(err) {
     console.log(err.message)
   }
+}
+
+export const searchMovies = async (searchString) => {
+  const querySearchString = SQLsearchString(searchString)
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=54bf3c231b54b82591554916467249d8&language=en-US&query=${querySearchString}`
+  try {
+    const response = await fetch(url)
+    const result = await response.json()
+    console.log(result);
+    return cleanMovies(result.results)
+  } catch(err) {
+    console.log(err.message);
+  }
+}
+
+const SQLsearchString = (searchString) => {
+  return searchString.replace(' ', '%20')
 }
