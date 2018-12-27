@@ -1,4 +1,4 @@
-import cleanMovies from './helper'
+import {cleanMovies, SQLsearchString} from './helper'
 import apiKey from './apiKey';
 
 export const fetchMovies = async (page) => {
@@ -93,9 +93,22 @@ export const deleteFavorite = async (userId, movieId) => {
       method: 'DELETE'
     })
     const result = await response.json()
-    console.log(result)
     return result;
   } catch(err) {
     console.log(err.message)
   }
 }
+
+export const searchMovies = async (searchString) => {
+  const querySearchString = SQLsearchString(searchString)
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${querySearchString}`
+  try {
+    const response = await fetch(url)
+    const result = await response.json()
+    console.log(result);
+    return cleanMovies(result.results)
+  } catch(err) {
+    console.log(err.message);
+  }
+}
+
