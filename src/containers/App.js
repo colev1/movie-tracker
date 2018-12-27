@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const movies = await fetchMovies(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`)
+    const movies = await fetchMovies()
     this.props.addMovies(movies)
   }
 
