@@ -37,7 +37,7 @@ class SearchBar extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            placeholder="Search the Database for your favorite movies"
+            placeholder="Search the Database by any keyword!"
             name="search"
             className="search-input"
             onChange={this.handleChange}
