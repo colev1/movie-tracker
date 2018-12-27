@@ -19,7 +19,6 @@ class Card extends Component {
       postFavorite(movie, user.id);
       this.props.addFavorite(movie);
     } else {
-      console.log(movie.movie_id, user.id)
       deleteFavorite(user.id, movie.movie_id);
       this.props.deleteFavoriteFromStore(movie)
     }
@@ -32,7 +31,7 @@ class Card extends Component {
     })
     let favoriteClass = faves ? 'favorite-movie favorite-btn' : 'favorite-btn';
 
-    let loggedIn = this.props.user ? false : true;
+    let loggedIn = this.props.user.name ? false : true;
     const posterPath = `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
     return (
       <div className="movie-card">

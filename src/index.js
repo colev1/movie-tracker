@@ -26,3 +26,21 @@ ReactDOM.render(router, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+
+//disappearing search bar
+
+window.onscroll = () => {setStickySearch()};
+
+const searchDiv = document.querySelector('.search-bar-div');
+
+const sticky = searchDiv.offsetTop;
+
+const  setStickySearch = () => {
+  if (window.pageYOffset >= sticky) {
+    searchDiv.classList.add("sticky")
+  } else {
+    searchDiv.classList.remove("sticky");
+  }
+}

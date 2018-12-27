@@ -46,6 +46,7 @@ button {
     background-color: #00045e;
     transition-duration: 0s;
     color: white;
+    border-color: white;
   }
 }
 
@@ -68,6 +69,14 @@ button {
 
 h4 {
   position: absolute;
-  left: 25px;
-  top: 40px;
+  left: 10px;
+  top: -13px;
+}
+
+.nav-btn {
+  transform: scale(0.7);
+
+  &:hover {
+    transform: scale(0.9);
+  }
 }
