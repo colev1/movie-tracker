@@ -1,4 +1,4 @@
-const cleanMovies = (movies) => {
+export const cleanMovies = (movies) => {
   return movies.map(movie => {
     const { title, backdrop_path, poster_path, overview, 
             original_language, popularity, id, genre_ids, 
@@ -18,4 +18,6 @@ const cleanMovies = (movies) => {
   })
 }
 
-export default cleanMovies;
+export const SQLsearchString = (searchString) => {
+  return searchString.replace(' ', '%20')
+}

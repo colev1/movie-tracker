@@ -30,6 +30,11 @@ class Nav extends Component {
     this.props.addMovies(nextPageOfMovies);
   }
 
+  navToHomePage = async () => {
+    const movies = await fetchMovies()
+    this.props.addMovies(movies);
+  }
+
 
   render() {
     return (
@@ -40,7 +45,7 @@ class Nav extends Component {
         <button className="nav-btn"
           onClick={this.decrementPage}><i class="fas fa-angle-left"></i> Previous Page</button>
         <NavLink to='/favorites'><button>My Favorites</button></NavLink>
-        <NavLink to='/'>
+        <NavLink to='/' onClick={this.navToHomePage}>
           <h1 className="logo">Movie <i className="fas fa-film"></i> Tracker</h1>
         </NavLink>
         { this.props.user.name ? <NavLink to='/'><button onClick={this.props.logout}>Sign Out</button></NavLink> : <NavLink to='/login'><button>Login/Signup</button></NavLink> }
