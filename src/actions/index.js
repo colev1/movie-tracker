@@ -38,3 +38,10 @@ export const addFavorites = (favorites) => {
     favorites
   }
 }
+
+export const isLoading = (bool) => {
+  return {
+    type: 'IS_LOADING',
+    isLoading: bool
+  }
+}
