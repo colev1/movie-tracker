@@ -1,7 +1,10 @@
 import {cleanMovies, SQLsearchString} from './helper'
 import apiKey from './apiKey';
+import { isLoading } from './actions';
+
 
 export const fetchMovies = async (page) => {
+  // dispatch(isLoading(true))
   let selectedPage = page || 1;
   let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=${selectedPage}`
   try {

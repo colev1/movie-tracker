@@ -75,6 +75,10 @@ class Login extends Component {
 
   render() {
     const { email, password, verifiedPassword, name } = this.state;
+    let disableSubmit = false;
+    if (!email || !password) {
+      disableSubmit = true;
+    } 
     if (!this.state.newUser) {
       return (
         <section className="login-container">
@@ -95,7 +99,8 @@ class Login extends Component {
               name="password"
               onChange={this.handleChange}
             />
-            <button className="login-submit-btn">Submit</button>
+            <button className="login-submit-btn" disabled={disableSubmit}
+            >Submit</button>
           </form>
           <div className="signup-prompt">
             <label>Or are you new to Movie Tracker?</label>
@@ -117,7 +122,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="text"
+              type="email"
               placeholder="E-Mail"
               value={email}
               name="email"
@@ -130,7 +135,11 @@ class Login extends Component {
               name="password"
               onChange={this.handleChange}
             />
-            <button className="login-submit-btn">Submit</button>
+            <button 
+              className="login-submit-btn"
+              disabled={disableSubmit}>
+            Submit
+            </button>
           </form>
         </section>
       )

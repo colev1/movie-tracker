@@ -7,7 +7,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import { fetchMovies } from '../API'
 import apiKey from '../apiKey';
 import { connect } from 'react-redux'
-import { addMovies } from '../actions'
+import { addMovies, isLoading } from '../actions'
 
 
 class App extends Component {
@@ -34,8 +34,13 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isLoading: state.isLoading
+})
+
+
 const mapDispatchToProps = (dispatch) => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(App))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
