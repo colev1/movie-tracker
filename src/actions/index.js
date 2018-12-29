@@ -45,3 +45,10 @@ export const isLoading = (bool) => {
     isLoading: bool
   }
 }
+
+export const fetchMoviesSuccess = (movies) => {
+  return {
+    type: 'FETCH_MOVIES_SUCCESS',
+    movies
+  }
+}
