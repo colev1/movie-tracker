@@ -51,12 +51,31 @@ describe('Card', () => {
     expect(API.postFavorite).toHaveBeenCalled()
   })
 
-  it('should call delete if there is a match', () => {
+  it('should call deleteFavorite if there is a match', () => {
     API.deleteFavorite = jest.fn()
     const button = wrapper.find('button');
     const handleSpy = jest.spyOn(wrapper.instance(), 'toggleFavorite')
     button.simulate('click');
     expect(API.deleteFavorite).toHaveBeenCalled()
+  })
+
+  it('should not display tooltip text if there is a user in store', () => {
+    expect(wrapper.find('button').props()["data-tooltip"]).toBe(null)
+  })
+
+   it('should display "must be signed in" if there is no user in store', () => {
+    let tooltipText = 'Must be signed in to favorite movies'
+    let wrapper = shallow(
+      <Card
+        movie={ mockMovie }
+        key={ mockMovie.title }
+        favorites= { mockFavorites }
+        user={{ name: null }}
+        addFavorite = { jest.fn() }
+        deleteFavoriteFromStore = { jest.fn() }
+      />
+    )
+    expect(wrapper.find('button').props()["data-tooltip"]).toBe(tooltipText)
   })
 
   describe('mapStateToProps', () => {
