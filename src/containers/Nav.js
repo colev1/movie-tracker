@@ -43,13 +43,13 @@ class Nav extends Component {
           {this.props.user.name ? `Welcome Back ${this.props.user.name}!` : null}
         </h4>
         <button className="nav-btn"
-          onClick={this.decrementPage}><i class="fas fa-angle-left"></i> Previous Page</button>
+          onClick={this.decrementPage}><i className="fas fa-angle-left"></i> Previous Page</button>
         <NavLink to='/favorites'><button>My Favorites</button></NavLink>
         <NavLink to='/' onClick={this.navToHomePage}>
           <h1 className="logo">Movie <i className="fas fa-film"></i> Tracker</h1>
         </NavLink>
         { this.props.user.name ? <NavLink to='/'><button onClick={this.props.logout}>Sign Out</button></NavLink> : <NavLink to='/login'><button>Login/Signup</button></NavLink> }
-        <button className="nav-btn" onClick={this.incrementPage}>Next Page <i class="fas fa-angle-right"></i></button>
+        <button className="nav-btn" onClick={this.incrementPage}>Next Page <i className="fas fa-angle-right"></i></button>
       </header>
     )
   }
