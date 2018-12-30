@@ -4,10 +4,10 @@ import Nav from './Nav';
 import MovieContainer from './MovieContainer';
 import Login from './Login';
 import { Route, Switch, withRouter } from 'react-router-dom'
-import { fetchMovies } from '../API'
+import { fetchMovies } from '../thunks/fetchMovies'
 import apiKey from '../apiKey';
 import { connect } from 'react-redux'
-import { addMovies, isLoading } from '../actions'
+import { isLoading } from '../actions'
 
 
 class App extends Component {
@@ -16,8 +16,8 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const movies = await fetchMovies()
-    this.props.addMovies(movies)
+    // const movies = await fetchMovies()
+    await this.props.fetchMovies()
   }
 
   render() {
@@ -35,12 +35,14 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  movies: state.movies,
+  error: state.error
 })
 
 
 const mapDispatchToProps = (dispatch) => ({
-  addMovies: (movies) => dispatch(addMovies(movies))
+  fetchMovies: () => dispatch(fetchMovies())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

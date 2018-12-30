@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { userReducer } from './userReducer';
-import { moviesReducer } from './moviesReducer';
+import { isLoading, hasErrored, moviesReducer } from './moviesReducer';
 import { favoritesReducer } from './favoritesReducer';
 
 
@@ -8,7 +8,9 @@ const rootReducer = combineReducers(
   {
     user: userReducer,
     movies: moviesReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    isLoading: isLoading,
+    error: hasErrored
   }
 )
 

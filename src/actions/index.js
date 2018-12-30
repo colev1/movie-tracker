@@ -11,12 +11,12 @@ export const logout = () => {
   }
 }
 
-export const addMovies = (movies) => {
-  return {
-    type: 'ADD_MOVIES',
-    movies
-  }
-}
+// export const addMovies = (movies) => {
+//   return {
+//     type: 'ADD_MOVIES',
+//     movies
+//   }
+// }
 
 export const addFavorite = (favorite) => {
   return {
@@ -45,6 +45,11 @@ export const isLoading = (bool) => {
     isLoading: bool
   }
 }
+
+export const hasErrored = (message) => ({
+   type: 'HAS_ERRORED',
+   message
+})
 
 export const fetchMoviesSuccess = (movies) => {
   return {
