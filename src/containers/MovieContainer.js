@@ -3,7 +3,7 @@ import Card from '../components/Card'
 import { connect } from 'react-redux'
 import './MovieContainer.scss'
 import SearchBar from './SearchBar'
-// import '../index.js';
+
 
 const MovieContainer = (props) => {
   let displayedMovies;

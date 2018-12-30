@@ -11,13 +11,6 @@ export const logout = () => {
   }
 }
 
-export const addMovies = (movies) => {
-  return {
-    type: 'ADD_MOVIES',
-    movies
-  }
-}
-
 export const addFavorite = (favorite) => {
   return {
     type: 'ADD_FAVORITE',
@@ -46,9 +39,21 @@ export const isLoading = (bool) => {
   }
 }
 
+export const hasErrored = (message) => ({
+   type: 'HAS_ERRORED',
+   message
+})
+
 export const fetchMoviesSuccess = (movies) => {
   return {
     type: 'FETCH_MOVIES_SUCCESS',
+    movies
+  }
+}
+
+export const searchMovieSuccess = (movies) => {
+  return {
+    type: 'SEARCH_MOVIES_SUCCESS',
     movies
   }
 }

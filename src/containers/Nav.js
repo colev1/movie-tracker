@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { logout } from '../actions'
-import { fetchMovies } from '../API'
-import { addMovies } from '../actions'
+import { fetchMovies } from '../thunks/fetchMovies'
 import './Nav.scss';
 
 
@@ -25,16 +24,13 @@ class Nav extends Component {
     }
   }
 
-  nextPage = async () => {
-    let nextPageOfMovies = await fetchMovies(this.state.pageNumber)
-    this.props.addMovies(nextPageOfMovies);
+  nextPage = () => {
+    this.props.fetchMovies(this.state.pageNumber);
   }
 
-  navToHomePage = async () => {
-    const movies = await fetchMovies()
-    this.props.addMovies(movies);
+  navToHomePage = () => {
+    this.props.fetchMovies();
   }
-
 
   render() {
     return (
@@ -61,7 +57,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
-  addMovies: (movies) => dispatch(addMovies(movies))
+  fetchMovies: (page) => dispatch(fetchMovies(page))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

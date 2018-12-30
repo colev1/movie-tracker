@@ -10,7 +10,7 @@ describe('moviesReducer', () => {
 
   it('should return the state with an array of movies', () => {
     const movies = [{movie: 'movie name'}]
-    const result = moviesReducer(undefined, actions.addMovies(movies))
+    const result = moviesReducer(undefined, actions.fetchMoviesSuccess(movies))
     expect(result).toEqual(movies)
   })
 })
