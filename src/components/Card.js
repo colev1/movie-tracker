@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { postFavorite, deleteFavorite } from '../API';
 import { addFavorite, deleteFavoriteFromStore } from '../actions';
 
-class Card extends Component {
+export class Card extends Component {
   constructor(props) {
     super(props)
   }
@@ -25,7 +25,6 @@ class Card extends Component {
   }
   
   render() {
-
     const faves = this.props.favorites.find(fave => {
       return fave.movie_id === this.props.movie.movie_id
     })
@@ -33,6 +32,7 @@ class Card extends Component {
 
     let loggedIn = this.props.user.name ? false : true;
     const posterPath = `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
+    
     return (
       <div className="movie-card">
         <button className={favoriteClass}
@@ -40,7 +40,7 @@ class Card extends Component {
           onClick={this.toggleFavorite}
           data-tooltip={loggedIn ? 'Must be signed in to favorite movies' : null}
         >
-            Favorite
+          Favorite
         </button>
         <article className="card-text">
           <h1 className="movie-title">{this.props.movie.title}</h1>
@@ -54,13 +54,12 @@ class Card extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user,
-  movies: state.movies,
   favorites: state.favorites
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addFavorite: (favorite) => dispatch(addFavorite(favorite)),
   deleteFavoriteFromStore: (favorite) => dispatch(deleteFavoriteFromStore(favorite))
 })
