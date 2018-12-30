@@ -4,18 +4,23 @@ exports[`Card should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Card
+    addFavorite={[MockFunction]}
+    deleteFavoriteFromStore={[MockFunction]}
     favorites={
       Array [
         Object {
+          "movie_id": 1,
           "title": "movie1",
         },
         Object {
+          "movie_id": 2,
           "title": "movie2",
         },
       ]
     }
     movie={
       Object {
+        "movie_id": 1,
         "title": "movie1",
       }
     }
