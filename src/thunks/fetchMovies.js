@@ -16,8 +16,8 @@ export const fetchMovies = (page) => {
       const result = await response.json()
       const movies = cleanMovies(result.results)
       dispatch(fetchMoviesSuccess(movies))
-    } catch (error) {
-      dispatch(hasErrored(error.message))
+    } catch (err) {
+      dispatch(hasErrored(err.message))
     }
   }
 }

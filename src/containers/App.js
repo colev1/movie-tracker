@@ -11,12 +11,8 @@ import { isLoading } from '../actions'
 
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   async componentDidMount() {
-    // const movies = await fetchMovies()
     await this.props.fetchMovies()
   }
 

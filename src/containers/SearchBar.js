@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './SearchBar.scss';
-import { searchMovies } from '../API';
-import { fetchMovies } from '../thunks/fetchMovies';
+import { searchMovies } from '../thunks/searchMovies';
 import { connect } from 'react-redux';
 
 
@@ -22,8 +21,7 @@ class SearchBar extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    const foundMovies = await searchMovies(this.state.search)
-    // this.props.fetchMovies(foundMovies);
+    this.props.searchMovies(this.state.search)
     this.resetState()
   }
 
@@ -39,6 +37,7 @@ class SearchBar extends Component {
             type="text"
             placeholder="Search the Database by any keyword!"
             name="search"
+            value={this.state.search}
             className="search-input"
             onChange={this.handleChange}
           />
@@ -50,7 +49,7 @@ class SearchBar extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addMovies: (movies) => dispatch(fetchMovies(movies))
+  searchMovies: (search) => dispatch(searchMovies(search))
 })
 
 export default connect(null, mapDispatchToProps)(SearchBar);

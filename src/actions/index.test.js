@@ -21,14 +21,14 @@ describe('actions', () => {
     expect(result).toEqual(expected)
   })
 
-  it('should have a type of ADD_MOVIES with a movies array', () => {
+  it('should have a type of FETCH_MOVIES with a movies array', () => {
     const movies = [{movie: 'great movie'}]
     const expected = {
-      type: 'ADD_MOVIES',
+      type: 'FETCH_MOVIES_SUCCESS',
       movies,
     }
 
-    const result = actions.addMovies(movies)
+    const result = actions.fetchMoviesSuccess(movies)
     expect(result).toEqual(expected)
   })
 

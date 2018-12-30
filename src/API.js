@@ -1,20 +1,4 @@
-import { cleanMovies, SQLsearchString } from './helper'
-import apiKey from './apiKey';
 import { isLoading } from './actions';
-
-
-// export const fetchMovies = async (page) => {
-//   // dispatch(isLoading(true))
-//   let selectedPage = page || 1;
-//   let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=${selectedPage}`
-//   try {
-//     const response = await fetch(url)
-//     const result = await response.json()
-//     return cleanMovies(result.results)
-//   } catch(err) {
-//     console.log(err.message)
-//   }
-// }
 
 export const postFavorite = async (movie, uid) => {
   const url = 'http://localhost:3000/api/users/favorites/new';
@@ -101,17 +85,3 @@ export const deleteFavorite = async (userId, movieId) => {
     console.log(err.message)
   }
 }
-
-export const searchMovies = async (searchString) => {
-  const querySearchString = SQLsearchString(searchString)
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${querySearchString}`
-  try {
-    const response = await fetch(url)
-    const result = await response.json()
-    console.log(result);
-    return cleanMovies(result.results)
-  } catch(err) {
-    console.log(err.message);
-  }
-}
-
