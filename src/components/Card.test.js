@@ -49,5 +49,14 @@ describe('Card', () => {
       result.addFavorite(favorite)
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
+
+    it('should call dispatch with the correct params', () => {
+      const favorite = mockMovie
+      const mockDispatch = jest.fn()
+      const actionToDispatch = actions.deleteFavoriteFromStore(favorite)
+      const result = mapDispatchToProps(mockDispatch)
+      result.deleteFavoriteFromStore(favorite)
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
   })
 })
