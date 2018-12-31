@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Nav, mapStateToProps, mapDispatchToProps } from './Nav'
 import { connect } from 'react-redux'
+import * as actions from '../actions'
+import * as thunks from '../thunks/fetchMovies'
+
+jest.mock('../thunks/fetchMovies')
 
 
 describe('Nav', () => {
@@ -36,5 +40,39 @@ describe('Nav', () => {
       />
     )
     expect(wrapper.find('h4').text()).toEqual('')
+  })
+
+  describe('mapStateToProps', () => {
+    it('should return an object with a user', () => {
+      const mockState = {
+        user: { name: 'Cole', id: 1 },
+      }
+      const expected = { user: mockState.user }
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    let mockDispatch
+
+    beforeEach(() => {
+      mockDispatch = jest.fn()
+    })
+    
+    it('should call dispatch with the correct params for logout', () => {
+      const actionToDispatch = actions.logout()
+      const result = mapDispatchToProps(mockDispatch)
+      result.logout()
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it('should call dispatch with the correct params for fetchMovies', () => {
+      const page = 2
+      const actionToDispatch = thunks.fetchMovies(page)
+      const result = mapDispatchToProps(mockDispatch)
+      result.fetchMovies(page)
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
   })
 })
