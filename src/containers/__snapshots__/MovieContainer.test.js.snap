@@ -16,7 +16,7 @@ ShallowWrapper {
     }
     match={
       Object {
-        "path": "/favorites",
+        "path": "/",
       }
     }
     movies={
