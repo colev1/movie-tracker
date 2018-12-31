@@ -17,51 +17,6 @@ export const postFavorite = async (movie, uid) => {
   }
 }
 
-export const createUser = async (user) => {
-  const url = 'http://localhost:3000/api/users/new'
-    try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-    const newUser = await response.json();
-    return newUser.id
-  } catch(err) {
-    console.log('error:', err)
-  }
-}
-
-export const loginUser = async (loginUser) => {
-  const url = 'http://localhost:3000/api/users/';
-  try {
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginUser)
-      })
-    const result = await response.json()
-    return result.data
-  } catch(err) {
-    console.log('loginUser err:', err)
-  }
-}
-
-export const fetchAllUsers = async () => {
-  const url = 'http://localhost:3000/api/users/';
-  try {
-    const response = await fetch(url)
-    const data = await response.json()
-    return data.data
-  } catch(err) {
-    console.log(err.message);
-  }
-}
-
 export const fetchFavorites = async (userId) => {
   const url = `http://localhost:3000/api/users/${userId}/favorites`;
   try {
