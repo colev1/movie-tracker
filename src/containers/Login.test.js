@@ -45,6 +45,20 @@ describe('Login', () => {
     expect(spy).toHaveBeenCalled()
   })
 
+  it('simulates text change in input box and updates state',() => {
+    const mockEvent = { target: { value: 'Cody@Cole.com', name: 'email' }}
+    const handleChangeSpy = jest.spyOn(wrapper.instance(), 'handleChange')
+    
+    wrapper.instance().forceUpdate();
+
+    const input = wrapper.find('input').at(0);
+    input.simulate('change', mockEvent);
+
+    expect(handleChangeSpy).toHaveBeenCalled()
+    expect(wrapper.state().email).toEqual('Cody@Cole.com')
+  });
+
+  
 
 
   describe('mapDispatchToProps', () => {
