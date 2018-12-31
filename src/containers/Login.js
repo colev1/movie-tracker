@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import * as API from '../API';
 import './Login.scss';
-import { loginUser, addFavorites } from '../actions';
+import { addFavorites } from '../actions';
 import { connect } from 'react-redux';
+import { createUser } from '../thunks/createUser';
+import { loginUser } from '../thunks/loginUser';
 
 class Login extends Component {
   constructor(props) {
@@ -10,7 +12,6 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      verifiedPassword: '',
       newUser: false,
       name: '',
       errorMessage: false
@@ -35,33 +36,21 @@ class Login extends Component {
     e.preventDefault()
     const { name, password, email } = this.state;
     const user = {name, email, password}
-    const userValid = await API.createUser(user)
-    if (!userValid) {
-      this.setState({
-        errorMessage: true
-      })
-    } else {
-      this.props.login({name: user.name, id: userValid})
-      this.resetState();
-      this.props.history.push('/');
-    }
+    this.props.createUser(user)
+    this.resetState();
+    this.props.history.push('/');
   }
 
   handleLoginSubmit = async (e) => {
     e.preventDefault()
-    const email = this.state.email.toLowerCase();
-    const {password} = this.state;
+    const email = this.state.email.toLowerCase()
+    const {password} = this.state
     const user = {password, email}
-    const userObject = await API.loginUser(user)
-    if (!userObject) {
-      this.setState({errorMessage: true})
-    } else {
-      this.props.login({name: userObject.name, id: userObject.id});
-      const favorites = await API.fetchFavorites(userObject.id);
-      this.props.addFavorites(favorites);
-      this.resetState();
-      this.props.history.push('/');
-    }
+    await this.props.loginUser(user)
+    const favorites = await API.fetchFavorites(this.props.user.id);
+    this.props.addFavorites(favorites);
+    this.resetState();
+    this.props.history.push('/');
   }
 
   resetState = () => {
@@ -147,9 +136,14 @@ class Login extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  login: (username) => dispatch(loginUser(username)),
-  addFavorites: (favorites) => dispatch(addFavorites(favorites)) 
+const mapStateToProps = (state) => ({
+  user: state.user
 })
 
-export default connect(null, mapDispatchToProps)(Login)
+const mapDispatchToProps = (dispatch) => ({
+  loginUser: (user) => dispatch(loginUser(user)),
+  addFavorites: (favorites) => dispatch(addFavorites(favorites)),
+  createUser: (user) => dispatch(createUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

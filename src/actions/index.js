@@ -1,4 +1,4 @@
-export const loginUser = (userObject) => {
+export const loginUserAction = (userObject) => {
   return {
     type: 'LOGIN_USER',
     userObject
