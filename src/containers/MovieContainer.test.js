@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import MovieContainer, { mapStateToProps } from './MovieContainer'
+import { MovieContainer, mapStateToProps } from './MovieContainer'
 import Card from '../components/Card'
 import { connect } from 'react-redux'
 
@@ -26,21 +26,21 @@ describe('MovieContainer', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  // it('should return three movies', () => {
-  //   expect(wrapper.find(Card).length).toEqual(3)
-  // })
+  it('should return three movies', () => {
+    expect(wrapper.find(Card).length).toEqual(3)
+  })
 
-  // it('should return three favorites', () => {
-  //   wrapper = shallow(
-  //     <MovieContainer
-  //       favorites={ mockFavorites }
-  //       movies={ mockMovies }
-  //       match={{ path: '/favorites' }}
-  //     />
-  //   )
+  it('should return three favorites', () => {
+    wrapper = shallow(
+      <MovieContainer
+        favorites={ mockFavorites }
+        movies={ mockMovies }
+        match={{ path: '/favorites' }}
+      />
+    )
     
-  //   expect(wrapper.find(Card).length).toEqual(2)
-  // })
+    expect(wrapper.find(Card).length).toEqual(2)
+  })
 
   describe('mapStateToProps', () => {
     it('should return an object with a movies and favorites array', () => {

@@ -24,8 +24,7 @@ describe('Nav', () => {
   })
 
   it('should welcome the user if logged in', () => {
-    const h4 = wrapper.find('h4')
-    expect(h4.text()).toEqual('Welcome Back Cole!')
+    expect(wrapper.find('h4').text()).toEqual('Welcome Back Cole!')
   })
 
   it('should display nothing if the user is not logged in', () => {
@@ -36,7 +35,6 @@ describe('Nav', () => {
         fetchMovies={jest.fn()}
       />
     )
-    const h4 = wrapper.find('h4')
-    expect(h4.text()).toEqual('')
+    expect(wrapper.find('h4').text()).toEqual('')
   })
 })
