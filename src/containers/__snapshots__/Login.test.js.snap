@@ -5,7 +5,8 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Login
     addFavorites={[MockFunction]}
-    login={[MockFunction]}
+    createUser={[MockFunction]}
+    loginUser={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

@@ -138,11 +138,11 @@ export class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loginUser: (user) => dispatch(loginUser(user)),
   fetchFavorites: (uid) => dispatch(fetchFavorites(uid)),
   createUser: (user) => dispatch(createUser(user))

@@ -1,8 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Login, mapDispatchToProps } from './Login'
+import { Login, mapStateToProps, mapDispatchToProps } from './Login'
 import * as API from '../API';
 import * as actions from '../actions'
+import { createUser } from '../thunks/createUser'
+import { loginUser } from '../thunks/loginUser'
+
+jest.mock('../thunks/createUser')
+jest.mock('../thunks/loginUser')
 
 describe('Login', () => {
   let mockFavorites
@@ -14,8 +19,9 @@ describe('Login', () => {
     mockUser = { name: 'Taylor', id: 1 }
     wrapper = shallow(
       <Login
-        login = { jest.fn() }
+        loginUser = { jest.fn() }
         addFavorites = { jest.fn() }
+        createUser = { jest.fn() }
       />
     )
   })
@@ -58,8 +64,16 @@ describe('Login', () => {
     expect(wrapper.state().email).toEqual('Cody@Cole.com')
   });
 
-  
-
+  describe('mapStateToProps', () => {
+    it('should return an object with a user', () => {
+      const mockState = {
+        user: { name: 'Cole', id: 1 },
+      }
+      const expected = { user: mockState.user }
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual(expected)
+    })
+  })
 
   describe('mapDispatchToProps', () => {
     let mockDispatch
@@ -70,9 +84,9 @@ describe('Login', () => {
     
     it('should call dispatch with the correct params for login', () => {
       const user = { name: 'Cole' }
-      const actionToDispatch = actions.loginUser(user)
+      const actionToDispatch = loginUser(user)
       const result = mapDispatchToProps(mockDispatch)
-      result.login(user)
+      result.loginUser(user)
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
 
@@ -81,6 +95,14 @@ describe('Login', () => {
       const actionToDispatch = actions.addFavorites(favorites)
       const result = mapDispatchToProps(mockDispatch)
       result.addFavorites(favorites)
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+
+    it('should call dispatch with the correct params for createUser', () => {
+      const user = { name: 'Cole' }
+      const actionToDispatch = createUser(user)
+      const result = mapDispatchToProps(mockDispatch)
+      result.createUser(user)
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
   })

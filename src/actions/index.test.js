@@ -8,7 +8,7 @@ describe('actions', () => {
       userObject,
     }
 
-    const result = actions.loginUser(userObject)
+    const result = actions.loginUserAction(userObject)
     expect(result).toEqual(expected)
   })
 

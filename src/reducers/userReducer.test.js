@@ -10,7 +10,7 @@ describe('userReducer', () => {
 
   it('should log in a user', () => {
     const expected = {name: 'person', id: 1}
-    const result = userReducer({}, actions.loginUser(expected))
+    const result = userReducer({}, actions.loginUserAction(expected))
     expect(result).toEqual(expected)
   })
 
