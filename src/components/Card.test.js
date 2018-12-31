@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Card, mapStateToProps, mapDispatchToProps } from './Card'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import * as API from '../API';
 import * as actions from '../actions'
 

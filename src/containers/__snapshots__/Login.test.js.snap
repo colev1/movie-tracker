@@ -1,0 +1,448 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login
+    addFavorites={[MockFunction]}
+    login={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2>
+          Welcome back!
+        </h2>,
+        <div
+          className="hide-error"
+        >
+          E-Mail and Password do not match
+        </div>,
+        <form
+          className="login-form"
+          onSubmit={[Function]}
+        >
+          <input
+            name="email"
+            onChange={[Function]}
+            placeholder="E-Mail"
+            type="email"
+            value=""
+          />
+          <input
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            type="text"
+            value=""
+          />
+          <button
+            className="login-submit-btn"
+            disabled={true}
+          >
+            Submit
+          </button>
+        </form>,
+        <div
+          className="signup-prompt"
+        >
+          <label>
+            Or are you new to Movie Tracker?
+          </label>
+          <button
+            onClick={[Function]}
+          >
+            Sign Up!
+          </button>
+        </div>,
+      ],
+      "className": "login-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Welcome back!",
+        },
+        "ref": null,
+        "rendered": "Welcome back!",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "E-Mail and Password do not match",
+          "className": "hide-error",
+        },
+        "ref": null,
+        "rendered": "E-Mail and Password do not match",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              name="email"
+              onChange={[Function]}
+              placeholder="E-Mail"
+              type="email"
+              value=""
+            />,
+            <input
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              type="text"
+              value=""
+            />,
+            <button
+              className="login-submit-btn"
+              disabled={true}
+            >
+              Submit
+            </button>,
+          ],
+          "className": "login-form",
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "email",
+              "onChange": [Function],
+              "placeholder": "E-Mail",
+              "type": "email",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "password",
+              "onChange": [Function],
+              "placeholder": "Password",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Submit",
+              "className": "login-submit-btn",
+              "disabled": true,
+            },
+            "ref": null,
+            "rendered": "Submit",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <label>
+              Or are you new to Movie Tracker?
+            </label>,
+            <button
+              onClick={[Function]}
+            >
+              Sign Up!
+            </button>,
+          ],
+          "className": "signup-prompt",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Or are you new to Movie Tracker?",
+            },
+            "ref": null,
+            "rendered": "Or are you new to Movie Tracker?",
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sign Up!",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Sign Up!",
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2>
+            Welcome back!
+          </h2>,
+          <div
+            className="hide-error"
+          >
+            E-Mail and Password do not match
+          </div>,
+          <form
+            className="login-form"
+            onSubmit={[Function]}
+          >
+            <input
+              name="email"
+              onChange={[Function]}
+              placeholder="E-Mail"
+              type="email"
+              value=""
+            />
+            <input
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              type="text"
+              value=""
+            />
+            <button
+              className="login-submit-btn"
+              disabled={true}
+            >
+              Submit
+            </button>
+          </form>,
+          <div
+            className="signup-prompt"
+          >
+            <label>
+              Or are you new to Movie Tracker?
+            </label>
+            <button
+              onClick={[Function]}
+            >
+              Sign Up!
+            </button>
+          </div>,
+        ],
+        "className": "login-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Welcome back!",
+          },
+          "ref": null,
+          "rendered": "Welcome back!",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "E-Mail and Password do not match",
+            "className": "hide-error",
+          },
+          "ref": null,
+          "rendered": "E-Mail and Password do not match",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                name="email"
+                onChange={[Function]}
+                placeholder="E-Mail"
+                type="email"
+                value=""
+              />,
+              <input
+                name="password"
+                onChange={[Function]}
+                placeholder="Password"
+                type="text"
+                value=""
+              />,
+              <button
+                className="login-submit-btn"
+                disabled={true}
+              >
+                Submit
+              </button>,
+            ],
+            "className": "login-form",
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "email",
+                "onChange": [Function],
+                "placeholder": "E-Mail",
+                "type": "email",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "password",
+                "onChange": [Function],
+                "placeholder": "Password",
+                "type": "text",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Submit",
+                "className": "login-submit-btn",
+                "disabled": true,
+              },
+              "ref": null,
+              "rendered": "Submit",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <label>
+                Or are you new to Movie Tracker?
+              </label>,
+              <button
+                onClick={[Function]}
+              >
+                Sign Up!
+              </button>,
+            ],
+            "className": "signup-prompt",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Or are you new to Movie Tracker?",
+              },
+              "ref": null,
+              "rendered": "Or are you new to Movie Tracker?",
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign Up!",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Sign Up!",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

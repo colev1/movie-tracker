@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createUser } from '../thunks/createUser';
 import { loginUser } from '../thunks/loginUser';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
