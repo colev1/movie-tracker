@@ -1,21 +1,21 @@
 import { isLoading } from './actions';
 
-export const postFavorite = async (movie, uid) => {
-  const url = 'http://localhost:3000/api/users/favorites/new';
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({...movie, user_id: uid})
-    })
-    const result = await response.json();
-    return result;
-  } catch(err) {
-    console.log(err)
-  }
-}
+// export const postFavorite = async (movie, uid) => {
+//   const url = 'http://localhost:3000/api/users/favorites/new';
+//   try {
+//     const response = await fetch(url, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({...movie, user_id: uid})
+//     })
+//     const result = await response.json();
+//     return result;
+//   } catch(err) {
+//     console.log(err)
+//   }
+// }
 
 export const fetchFavorites = async (userId) => {
   const url = `http://localhost:3000/api/users/${userId}/favorites`;

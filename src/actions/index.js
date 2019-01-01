@@ -57,3 +57,4 @@ export const searchMovieSuccess = (movies) => {
     movies
   }
 }
+
