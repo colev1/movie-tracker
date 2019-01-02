@@ -1,5 +1,4 @@
 import { isLoading, hasErrored, loginUserAction } from '../actions'
-import { loginUser } from './loginUser';
 
 export const createUser = (user) => {
   const url = 'http://localhost:3000/api/users/new'

@@ -35,9 +35,13 @@ export class Login extends Component {
     e.preventDefault()
     const { name, password, email } = this.state;
     const user = {name, email, password}
-    this.props.createUser(user)
-    this.resetState();
-    this.props.history.push('/');
+    await this.props.createUser(user)
+    if (this.props.error) {
+      this.setState({errorMessage: true})
+    } else {
+      this.resetState();
+      this.props.history.push('/');
+    }
   }
 
   handleLoginSubmit = async (e) => {
@@ -46,13 +50,13 @@ export class Login extends Component {
     const {password} = this.state
     const user = {password, email}
     await this.props.loginUser(user)
-    // const favorites = await this.props.fetchFavorites(this.props.user.id);
-
-    // this.props.addFavorites(favorites);
-
-    this.props.fetchFavorites(this.props.user.id);
-    this.resetState();
-    this.props.history.push('/');
+    if (this.props.error) {
+      this.setState({errorMessage: true})
+    } else {
+      this.props.fetchFavorites(this.props.user.id);
+      this.resetState();
+      this.props.history.push('/');
+    }
   }
 
   resetState = () => {
@@ -139,7 +143,8 @@ export class Login extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  error: state.error
 })
 
 export const mapDispatchToProps = (dispatch) => ({
