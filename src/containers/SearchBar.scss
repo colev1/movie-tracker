@@ -1,11 +1,8 @@
 .search-bar-div {
-  position: absolute;
-  top: 17vh;
-  z-index: 0;
+  padding-left: 60px;
   width: 550px;
   height: 50px;
-  transition-duration: 0.5s;
-  left: 460px;
+  margin: 175px auto 0 auto;
 }
 
 .search-input {
