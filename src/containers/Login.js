@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './Login.scss';
-import {fetchFavorites} from '../thunks/fetchFavorites';
+import { fetchFavorites } from '../thunks/fetchFavorites';
 import { connect } from 'react-redux';
 import { createUser } from '../thunks/createUser';
 import { loginUser } from '../thunks/loginUser';
+import './Login.scss';
 
 export class Login extends Component {
   constructor(props) {
