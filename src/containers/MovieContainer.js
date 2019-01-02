@@ -28,8 +28,11 @@ export const MovieContainer = (props) => {
           <SearchBar />
           { movies }
         </div>
-        <h1 className={displayedMovies.length === 0 ? 'no-movies movie-container' : 'hidden'}>
+        <h1 className={displayedMovies.length === 0 && props.match.path === '/favorites' ? 'no-movies movie-container' : 'hidden'}>
           You have no favorited movies silly!
+        </h1>
+        <h1 className={displayedMovies.length === 0 && props.match.path === '/' ? 'no-movies movie-container' : 'hidden'}>
+          No movies matched your search query.
         </h1>
       </div>
     )
