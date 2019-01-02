@@ -47,4 +47,7 @@ In the movie-tracker directory, you can run the test files using:
 
 ![Screenshot of app](app1.png)
 
+![Second screenshot of app](app2.png)
+
+
 
