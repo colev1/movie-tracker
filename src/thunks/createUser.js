@@ -1,4 +1,5 @@
 import { isLoading, hasErrored, loginUserAction } from '../actions'
+import { loginUser } from './loginUser';
 
 export const createUser = (user) => {
   const url = 'http://localhost:3000/api/users/new'
@@ -17,7 +18,13 @@ export const createUser = (user) => {
       }
       dispatch(isLoading(false))
       const newUser = await response.json();
-      dispatch(loginUserAction(newUser))
+      const newUserToBeLoggedIn = {
+        id: newUser.id,
+        email: user.email,
+        password: user.password,
+        name: user.name
+      }
+      dispatch(loginUserAction(newUserToBeLoggedIn))
     } catch(err) {
       dispatch(hasErrored(err.message));
     }

@@ -1,20 +1,20 @@
-
 .movie-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 16px;
   background: black;
-  margin-top: 150px;
+  margin-top: 160px;
   z-index: 1;
 }
 
-.no-movies {
+.no-movies,
+.loading,
+.error {
   color: white;
   margin-top: 32%;
   font-size: 36px;
-  // transition-duration: 0.3s;
-    text-shadow: 3px 3px #ba0000;
-    font-family: 'Bungee Inline', cursive;
-    margin: 300px 40px 40px 40px;
+  text-shadow: 3px 3px #ba0000;
+  font-family: 'Bungee Inline', cursive;
+  margin: 300px 40px 40px 40px;
 }

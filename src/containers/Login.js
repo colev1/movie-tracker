@@ -46,7 +46,7 @@ export class Login extends Component {
     const {password} = this.state
     const user = {password, email}
     await this.props.loginUser(user)
-    // const favorites = await API.fetchFavorites(this.props.user.id);
+    // const favorites = await this.props.fetchFavorites(this.props.user.id);
 
     // this.props.addFavorites(favorites);
 
@@ -144,8 +144,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   loginUser: (user) => dispatch(loginUser(user)),
+  createUser: (user) => dispatch(createUser(user)),
   fetchFavorites: (uid) => dispatch(fetchFavorites(uid)),
-  createUser: (user) => dispatch(createUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
