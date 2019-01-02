@@ -5,9 +5,7 @@ import MovieContainer from './MovieContainer';
 import Login from './Login';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { fetchMovies } from '../thunks/fetchMovies'
-import apiKey from '../apiKey';
 import { connect } from 'react-redux'
-import { isLoading } from '../actions'
 
 
 class App extends Component {

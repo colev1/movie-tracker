@@ -29,7 +29,7 @@ export const MovieContainer = (props) => {
           { movies }
         </div>
         <h1 className={displayedMovies.length === 0 ? 'no-movies movie-container' : 'hidden'}>
-          You have no favorited movies! Sign in to favorite a movie.
+          You have no favorited movies silly!
         </h1>
       </div>
     )

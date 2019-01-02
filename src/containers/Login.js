@@ -36,12 +36,7 @@ export class Login extends Component {
     const { name, password, email } = this.state;
     const user = {name, email, password}
     await this.props.createUser(user)
-    if (this.props.error) {
-      this.setState({errorMessage: true})
-    } else {
-      this.resetState();
-      this.props.history.push('/');
-    }
+    await this.handleServerResponse()
   }
 
   handleLoginSubmit = async (e) => {
@@ -50,6 +45,10 @@ export class Login extends Component {
     const {password} = this.state
     const user = {password, email}
     await this.props.loginUser(user)
+    await this.handleServerResponse()
+  }
+
+  handleServerResponse = () => {
     if (this.props.error) {
       this.setState({errorMessage: true})
     } else {
