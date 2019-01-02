@@ -7,9 +7,11 @@ ShallowWrapper {
     favorites={
       Array [
         Object {
+          "movie_id": 1,
           "title": "movie1",
         },
         Object {
+          "movie_id": 2,
           "title": "movie2",
         },
       ]
@@ -22,12 +24,15 @@ ShallowWrapper {
     movies={
       Array [
         Object {
+          "movie_id": 1,
           "title": "movie1",
         },
         Object {
+          "movie_id": 2,
           "title": "movie2",
         },
         Object {
+          "movie_id": 3,
           "title": "movie3",
         },
       ]
@@ -54,6 +59,7 @@ ShallowWrapper {
           <Connect(Card)
             movie={
               Object {
+                "movie_id": 1,
                 "title": "movie1",
               }
             }
@@ -61,6 +67,7 @@ ShallowWrapper {
           <Connect(Card)
             movie={
               Object {
+                "movie_id": 2,
                 "title": "movie2",
               }
             }
@@ -68,6 +75,7 @@ ShallowWrapper {
           <Connect(Card)
             movie={
               Object {
+                "movie_id": 3,
                 "title": "movie3",
               }
             }
@@ -93,6 +101,7 @@ ShallowWrapper {
               <Connect(Card)
                 movie={
                   Object {
+                    "movie_id": 1,
                     "title": "movie1",
                   }
                 }
@@ -100,6 +109,7 @@ ShallowWrapper {
               <Connect(Card)
                 movie={
                   Object {
+                    "movie_id": 2,
                     "title": "movie2",
                   }
                 }
@@ -107,6 +117,7 @@ ShallowWrapper {
               <Connect(Card)
                 movie={
                   Object {
+                    "movie_id": 3,
                     "title": "movie3",
                   }
                 }
@@ -128,10 +139,11 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "1",
             "nodeType": "class",
             "props": Object {
               "movie": Object {
+                "movie_id": 1,
                 "title": "movie1",
               },
             },
@@ -141,10 +153,11 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "2",
             "nodeType": "class",
             "props": Object {
               "movie": Object {
+                "movie_id": 2,
                 "title": "movie2",
               },
             },
@@ -154,10 +167,11 @@ ShallowWrapper {
           },
           Object {
             "instance": null,
-            "key": undefined,
+            "key": "3",
             "nodeType": "class",
             "props": Object {
               "movie": Object {
+                "movie_id": 3,
                 "title": "movie3",
               },
             },
@@ -197,6 +211,7 @@ ShallowWrapper {
             <Connect(Card)
               movie={
                 Object {
+                  "movie_id": 1,
                   "title": "movie1",
                 }
               }
@@ -204,6 +219,7 @@ ShallowWrapper {
             <Connect(Card)
               movie={
                 Object {
+                  "movie_id": 2,
                   "title": "movie2",
                 }
               }
@@ -211,6 +227,7 @@ ShallowWrapper {
             <Connect(Card)
               movie={
                 Object {
+                  "movie_id": 3,
                   "title": "movie3",
                 }
               }
@@ -236,6 +253,7 @@ ShallowWrapper {
                 <Connect(Card)
                   movie={
                     Object {
+                      "movie_id": 1,
                       "title": "movie1",
                     }
                   }
@@ -243,6 +261,7 @@ ShallowWrapper {
                 <Connect(Card)
                   movie={
                     Object {
+                      "movie_id": 2,
                       "title": "movie2",
                     }
                   }
@@ -250,6 +269,7 @@ ShallowWrapper {
                 <Connect(Card)
                   movie={
                     Object {
+                      "movie_id": 3,
                       "title": "movie3",
                     }
                   }
@@ -271,10 +291,11 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "1",
               "nodeType": "class",
               "props": Object {
                 "movie": Object {
+                  "movie_id": 1,
                   "title": "movie1",
                 },
               },
@@ -284,10 +305,11 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "2",
               "nodeType": "class",
               "props": Object {
                 "movie": Object {
+                  "movie_id": 2,
                   "title": "movie2",
                 },
               },
@@ -297,10 +319,11 @@ ShallowWrapper {
             },
             Object {
               "instance": null,
-              "key": undefined,
+              "key": "3",
               "nodeType": "class",
               "props": Object {
                 "movie": Object {
+                  "movie_id": 3,
                   "title": "movie3",
                 },
               },

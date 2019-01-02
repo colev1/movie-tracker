@@ -11,8 +11,8 @@ describe('MovieContainer', () => {
   let wrapper
 
   beforeEach(() => {
-    mockMovies = [{ title: 'movie1'}, {title: 'movie2'}, {title: 'movie3' }]
-    mockFavorites = [{ title: 'movie1'}, {title: 'movie2' }]
+    mockMovies = [{ title: 'movie1', movie_id: 1}, {title: 'movie2', movie_id: 2}, {title: 'movie3', movie_id: 3 }]
+    mockFavorites = [{ title: 'movie1', movie_id: 1}, {title: 'movie2', movie_id: 2 }]
      wrapper = shallow(
       <MovieContainer
         favorites={mockFavorites}
