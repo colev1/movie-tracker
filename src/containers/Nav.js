@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { logout } from '../actions'
-import { fetchMovies } from '../thunks/fetchMovies'
+import { logout } from '../actions';
+import { fetchMovies } from '../thunks/fetchMovies';
 import './Nav.scss';
-
 
 class Nav extends Component {
   constructor() {
@@ -44,7 +43,7 @@ class Nav extends Component {
         <NavLink to='/' onClick={this.navToHomePage}>
           <h1 className="logo">Movie <i className="fas fa-film"></i> Tracker</h1>
         </NavLink>
-        { this.props.user.name ? <NavLink to='/'><button onClick={this.props.logout}>Sign Out</button></NavLink> : <NavLink to='/login'><button>Login/Signup</button></NavLink> }
+        { this.props.user.name ? <NavLink to='/'><button onClick={this.props.logout}>Sign Out</button></NavLink> : <NavLink to='/login'><button>Sign In</button></NavLink> }
         <button className="nav-btn" onClick={this.incrementPage}>Next Page <i className="fas fa-angle-right"></i></button>
       </header>
     )

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Card.scss'
 import {connect} from 'react-redux';
-import { postFavorite, deleteFavorite } from '../API';
-import { addFavorite, deleteFavoriteFromStore } from '../actions';
+import { deleteFavorite } from '../thunks/deleteFavorite';
+import { postFavorite } from '../thunks/addFavorite';
 
 export class Card extends Component {
   constructor(props) {
@@ -16,11 +16,9 @@ export class Card extends Component {
     })
     
     if(!matchingFavorite) {
-      postFavorite(movie, user.id);
-      this.props.addFavorite(movie);
+      this.props.postFavorite(movie, user.id);
     } else {
-      deleteFavorite(user.id, movie.movie_id);
-      this.props.deleteFavoriteFromStore(movie)
+      this.props.deleteFavoriteFromStore(movie, user.id);
     }
   }
   
@@ -60,8 +58,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  addFavorite: (favorite) => dispatch(addFavorite(favorite)),
-  deleteFavoriteFromStore: (favorite) => dispatch(deleteFavoriteFromStore(favorite))
+  postFavorite: (favorite, uid) => dispatch(postFavorite(favorite, uid)),
+  deleteFavoriteFromStore: (movie, uid) => dispatch(deleteFavorite(movie, uid))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
