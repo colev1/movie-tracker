@@ -5,8 +5,8 @@ import { postFavorite } from '../thunks/addFavorite'
 import './Card.scss'
 
 export class Card extends Component {
-  toggleFavorite = (e) => {
-    e.preventDefault()
+
+  toggleFavorite = () => {
     const {movie, user, favorites} = this.props
     const matchingFavorite = favorites.find(faveMovie => {
       return faveMovie.movie_id === movie.movie_id
