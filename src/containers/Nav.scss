@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Inline');
 
 header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   align-items: center;
   background-color: #ba0000;
-  color: white;
-  height: 15vh;
-  font-family: Arial, Helvetica, sans-serif;
   box-shadow: #ba0000 6px 6px 30px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 15vh;
+  justify-content: space-around;
   position: fixed;
-  z-index: 6;
-  width: 100%;
   top: 0px;
+  width: 100%;
+  z-index: 6;
 }
 
 a {
@@ -22,39 +22,39 @@ a {
 }
 
 button {
-  cursor: pointer;
-  padding: 5px 15px;
-  border-radius: 10px;
   background-color: black;
-  color: white;
+  border-radius: 10px;
   border: 2px solid white;
-  font-weight: bold;
-  transition-duration: 0.3s;
+  color: white;
+  cursor: pointer;
   font-size: 14px;
+  font-weight: bold;
   outline: none;
+  padding: 5px 15px;
+  transition-duration: 0.3s;
 
 
   &:hover {
     background-color: white;
-    color: black;
     border-color: black;
+    color: black;
     transform: scale(1.2);
     transition-duration: 0.3s;
   }
 
   &:active {
     background-color: #00045e;
-    transition-duration: 0s;
-    color: white;
     border-color: white;
+    color: white;
+    transition-duration: 0s;
   }
 }
 
 .logo {
-  font-size: 50px;
-  transition-duration: 0.3s;
-  text-shadow: 3px 3px black;
   font-family: 'Bungee Inline', cursive;
+  font-size: 50px;
+  text-shadow: 3px 3px black;
+  transition-duration: 0.3s;
 
   &:hover {
     transform: scale(1.1);
@@ -68,8 +68,8 @@ button {
 }
 
 h4 {
-  position: absolute;
   left: 10px;
+  position: absolute;
   top: -13px;
 }
 
