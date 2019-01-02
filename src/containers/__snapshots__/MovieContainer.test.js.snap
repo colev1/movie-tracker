@@ -47,82 +47,138 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Connect(SearchBar) />,
-        Array [
+        <div
+          className="movie-container"
+        >
+          <Connect(SearchBar) />
           <Connect(Card)
             movie={
               Object {
                 "title": "movie1",
               }
             }
-          />,
+          />
           <Connect(Card)
             movie={
               Object {
                 "title": "movie2",
               }
             }
-          />,
+          />
           <Connect(Card)
             movie={
               Object {
                 "title": "movie3",
               }
             }
-          />,
-        ],
+          />
+        </div>,
+        <h1
+          className="hidden"
+        >
+          You have no favorited movies! Sign in to favorite a movie.
+        </h1>,
       ],
-      "className": "movie-container",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Connect(SearchBar) />,
+            Array [
+              <Connect(Card)
+                movie={
+                  Object {
+                    "title": "movie1",
+                  }
+                }
+              />,
+              <Connect(Card)
+                movie={
+                  Object {
+                    "title": "movie2",
+                  }
+                }
+              />,
+              <Connect(Card)
+                movie={
+                  Object {
+                    "title": "movie3",
+                  }
+                }
+              />,
+            ],
+          ],
+          "className": "movie-container",
+        },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "movie": Object {
+                "title": "movie1",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "movie": Object {
+                "title": "movie2",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "movie": Object {
+                "title": "movie3",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
-        "key": "movie1",
-        "nodeType": "class",
+        "key": undefined,
+        "nodeType": "host",
         "props": Object {
-          "movie": Object {
-            "title": "movie1",
-          },
+          "children": "You have no favorited movies! Sign in to favorite a movie.",
+          "className": "hidden",
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "movie2",
-        "nodeType": "class",
-        "props": Object {
-          "movie": Object {
-            "title": "movie2",
-          },
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "movie3",
-        "nodeType": "class",
-        "props": Object {
-          "movie": Object {
-            "title": "movie3",
-          },
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": "You have no favorited movies! Sign in to favorite a movie.",
+        "type": "h1",
       },
     ],
     "type": "div",
@@ -134,82 +190,138 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Connect(SearchBar) />,
-          Array [
+          <div
+            className="movie-container"
+          >
+            <Connect(SearchBar) />
             <Connect(Card)
               movie={
                 Object {
                   "title": "movie1",
                 }
               }
-            />,
+            />
             <Connect(Card)
               movie={
                 Object {
                   "title": "movie2",
                 }
               }
-            />,
+            />
             <Connect(Card)
               movie={
                 Object {
                   "title": "movie3",
                 }
               }
-            />,
-          ],
+            />
+          </div>,
+          <h1
+            className="hidden"
+          >
+            You have no favorited movies! Sign in to favorite a movie.
+          </h1>,
         ],
-        "className": "movie-container",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Connect(SearchBar) />,
+              Array [
+                <Connect(Card)
+                  movie={
+                    Object {
+                      "title": "movie1",
+                    }
+                  }
+                />,
+                <Connect(Card)
+                  movie={
+                    Object {
+                      "title": "movie2",
+                    }
+                  }
+                />,
+                <Connect(Card)
+                  movie={
+                    Object {
+                      "title": "movie3",
+                    }
+                  }
+                />,
+              ],
+            ],
+            "className": "movie-container",
+          },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "movie": Object {
+                  "title": "movie1",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "movie": Object {
+                  "title": "movie2",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "movie": Object {
+                  "title": "movie3",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
-          "key": "movie1",
-          "nodeType": "class",
+          "key": undefined,
+          "nodeType": "host",
           "props": Object {
-            "movie": Object {
-              "title": "movie1",
-            },
+            "children": "You have no favorited movies! Sign in to favorite a movie.",
+            "className": "hidden",
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "movie2",
-          "nodeType": "class",
-          "props": Object {
-            "movie": Object {
-              "title": "movie2",
-            },
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "movie3",
-          "nodeType": "class",
-          "props": Object {
-            "movie": Object {
-              "title": "movie3",
-            },
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": "You have no favorited movies! Sign in to favorite a movie.",
+          "type": "h1",
         },
       ],
       "type": "div",

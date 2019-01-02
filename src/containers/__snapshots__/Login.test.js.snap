@@ -4,8 +4,8 @@ exports[`Login should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Login
-    addFavorites={[MockFunction]}
     createUser={[MockFunction]}
+    fetchFavorites={[MockFunction]}
     loginUser={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -38,14 +38,14 @@ ShallowWrapper {
             name="email"
             onChange={[Function]}
             placeholder="E-Mail"
-            type="email"
+            type="text"
             value=""
           />
           <input
             name="password"
             onChange={[Function]}
             placeholder="Password"
-            type="text"
+            type="password"
             value=""
           />
           <button
@@ -105,14 +105,14 @@ ShallowWrapper {
               name="email"
               onChange={[Function]}
               placeholder="E-Mail"
-              type="email"
+              type="text"
               value=""
             />,
             <input
               name="password"
               onChange={[Function]}
               placeholder="Password"
-              type="text"
+              type="password"
               value=""
             />,
             <button
@@ -135,7 +135,7 @@ ShallowWrapper {
               "name": "email",
               "onChange": [Function],
               "placeholder": "E-Mail",
-              "type": "email",
+              "type": "text",
               "value": "",
             },
             "ref": null,
@@ -150,7 +150,7 @@ ShallowWrapper {
               "name": "password",
               "onChange": [Function],
               "placeholder": "Password",
-              "type": "text",
+              "type": "password",
               "value": "",
             },
             "ref": null,
@@ -244,14 +244,14 @@ ShallowWrapper {
               name="email"
               onChange={[Function]}
               placeholder="E-Mail"
-              type="email"
+              type="text"
               value=""
             />
             <input
               name="password"
               onChange={[Function]}
               placeholder="Password"
-              type="text"
+              type="password"
               value=""
             />
             <button
@@ -311,14 +311,14 @@ ShallowWrapper {
                 name="email"
                 onChange={[Function]}
                 placeholder="E-Mail"
-                type="email"
+                type="text"
                 value=""
               />,
               <input
                 name="password"
                 onChange={[Function]}
                 placeholder="Password"
-                type="text"
+                type="password"
                 value=""
               />,
               <button
@@ -341,7 +341,7 @@ ShallowWrapper {
                 "name": "email",
                 "onChange": [Function],
                 "placeholder": "E-Mail",
-                "type": "email",
+                "type": "text",
                 "value": "",
               },
               "ref": null,
@@ -356,7 +356,7 @@ ShallowWrapper {
                 "name": "password",
                 "onChange": [Function],
                 "placeholder": "Password",
-                "type": "text",
+                "type": "password",
                 "value": "",
               },
               "ref": null,

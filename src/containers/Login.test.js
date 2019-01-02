@@ -1,13 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Login, mapStateToProps, mapDispatchToProps } from './Login'
-import * as API from '../API';
 import * as actions from '../actions'
 import { createUser } from '../thunks/createUser'
 import { loginUser } from '../thunks/loginUser'
+import { fetchFavorites } from '../thunks/fetchFavorites'
 
 jest.mock('../thunks/createUser')
 jest.mock('../thunks/loginUser')
+jest.mock('../thunks/fetchFavorites')
 
 describe('Login', () => {
   let mockFavorites
@@ -20,7 +21,7 @@ describe('Login', () => {
     wrapper = shallow(
       <Login
         loginUser = { jest.fn() }
-        addFavorites = { jest.fn() }
+        fetchFavorites = { jest.fn() }
         createUser = { jest.fn() }
       />
     )
@@ -90,11 +91,11 @@ describe('Login', () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
 
-    it('should call dispatch with the correct params for addFavorites', () => {
-      const favorites = [{title: 'movie1', movie_id: 1}, {title: 'movie2', movie_id: 2}]
-      const actionToDispatch = actions.addFavorites(favorites)
+    it('should call dispatch with the correct params for fetchFavorites', () => {
+      const uid = 2
+      const actionToDispatch = fetchFavorites(uid)
       const result = mapDispatchToProps(mockDispatch)
-      result.addFavorites(favorites)
+      result.fetchFavorites(uid)
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
 
