@@ -18,6 +18,7 @@ export const loginUser = (user) => {
       dispatch(isLoading(false))
       const result = await response.json()
       dispatch(loginUserAction(result.data))
+      dispatch(hasErrored(''))
     } catch(err) {
       dispatch(hasErrored(err.message));
     }
