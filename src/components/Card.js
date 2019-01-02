@@ -1,24 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import { deleteFavorite } from '../thunks/deleteFavorite'
+import { postFavorite } from '../thunks/addFavorite'
 import './Card.scss'
-import {connect} from 'react-redux';
-import { deleteFavorite } from '../thunks/deleteFavorite';
-import { postFavorite } from '../thunks/addFavorite';
 
 export class Card extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
-  toggleFavorite = () => {
-    const {movie, user, favorites} = this.props;
+  toggleFavorite = (e) => {
+    e.preventDefault()
+    const {movie, user, favorites} = this.props
     const matchingFavorite = favorites.find(faveMovie => {
       return faveMovie.movie_id === movie.movie_id
     })
-    
     if(!matchingFavorite) {
-      this.props.postFavorite(movie, user.id);
+      this.props.postFavorite(movie, user.id)
     } else {
-      this.props.deleteFavoriteFromStore(movie, user.id);
+      this.props.deleteFavoriteFromStore(movie, user.id)
     }
   }
   
@@ -26,9 +22,8 @@ export class Card extends Component {
     const faves = this.props.favorites.find(fave => {
       return fave.movie_id === this.props.movie.movie_id
     })
-    let favoriteClass = faves ? 'favorite-movie favorite-btn' : 'favorite-btn';
-
-    let loggedIn = this.props.user.name ? false : true;
+    let favoriteClass = faves ? 'favorite-movie favorite-btn' : 'favorite-btn'
+    let loggedIn = this.props.user.name ? false : true
     const posterPath = `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
     
     return (
@@ -45,7 +40,7 @@ export class Card extends Component {
           <p> {this.props.movie.overview} </p>
         </article>
         <article className='poster'>
-          <img src={posterPath} />
+          <img src={posterPath} alt={this.props.movie.title} />
         </article>
       </div>
     )
@@ -62,4 +57,4 @@ export const mapDispatchToProps = (dispatch) => ({
   deleteFavoriteFromStore: (movie, uid) => dispatch(deleteFavorite(movie, uid))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card)

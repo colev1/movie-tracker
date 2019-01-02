@@ -25,7 +25,6 @@ $acme-font: 'Acme', sans-serif;
   &:hover {
     transform: scale(1.1);
     transition-duration: 0.4s;
-    cursor: pointer;
     img {
       filter: blur(5px); 
     }
@@ -61,7 +60,6 @@ $acme-font: 'Acme', sans-serif;
     width: 100%;
   }
 }
-
 
 .favorite-btn {
   position: absolute;
