@@ -52,10 +52,10 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <Connect(SearchBar) />,
         <div
           className="movie-container"
         >
-          <Connect(SearchBar) />
           <Connect(Card)
             movie={
               Object {
@@ -98,50 +98,47 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Connect(SearchBar) />,
-            Array [
-              <Connect(Card)
-                movie={
-                  Object {
-                    "movie_id": 1,
-                    "title": "movie1",
-                  }
+            <Connect(Card)
+              movie={
+                Object {
+                  "movie_id": 1,
+                  "title": "movie1",
                 }
-              />,
-              <Connect(Card)
-                movie={
-                  Object {
-                    "movie_id": 2,
-                    "title": "movie2",
-                  }
+              }
+            />,
+            <Connect(Card)
+              movie={
+                Object {
+                  "movie_id": 2,
+                  "title": "movie2",
                 }
-              />,
-              <Connect(Card)
-                movie={
-                  Object {
-                    "movie_id": 3,
-                    "title": "movie3",
-                  }
+              }
+            />,
+            <Connect(Card)
+              movie={
+                Object {
+                  "movie_id": 3,
+                  "title": "movie3",
                 }
-              />,
-            ],
+              }
+            />,
           ],
           "className": "movie-container",
         },
         "ref": null,
         "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
           Object {
             "instance": null,
             "key": "1",
@@ -221,10 +218,10 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <Connect(SearchBar) />,
           <div
             className="movie-container"
           >
-            <Connect(SearchBar) />
             <Connect(Card)
               movie={
                 Object {
@@ -267,50 +264,47 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <Connect(SearchBar) />,
-              Array [
-                <Connect(Card)
-                  movie={
-                    Object {
-                      "movie_id": 1,
-                      "title": "movie1",
-                    }
+              <Connect(Card)
+                movie={
+                  Object {
+                    "movie_id": 1,
+                    "title": "movie1",
                   }
-                />,
-                <Connect(Card)
-                  movie={
-                    Object {
-                      "movie_id": 2,
-                      "title": "movie2",
-                    }
+                }
+              />,
+              <Connect(Card)
+                movie={
+                  Object {
+                    "movie_id": 2,
+                    "title": "movie2",
                   }
-                />,
-                <Connect(Card)
-                  movie={
-                    Object {
-                      "movie_id": 3,
-                      "title": "movie3",
-                    }
+                }
+              />,
+              <Connect(Card)
+                movie={
+                  Object {
+                    "movie_id": 3,
+                    "title": "movie3",
                   }
-                />,
-              ],
+                }
+              />,
             ],
             "className": "movie-container",
           },
           "ref": null,
           "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {},
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
             Object {
               "instance": null,
               "key": "1",
