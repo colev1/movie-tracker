@@ -1,6 +1,6 @@
 import {cleanMovies, SQLsearchString } from './helper'
 
-describe('helper', () => {
+describe('helper files', () => {
 	it('has method clean movies that takes in an array of movie and returns an array of cleaned movies', () => {
 		const mockMovie = { 
 			'popularity': 626.447,
@@ -22,7 +22,7 @@ describe('helper', () => {
 			'adult': false,
 			'overview': 'Arthur Curry learns that he is the heir to the underwater kingdom of Atlantis, and must step forward to lead his people and be a hero to the world.',
 			'poster_path': '/i2dF9UxOeb77CAJrOflj0RpqJRF.jpg'
-    }
+		}
     
 		const cleanedMovie = {
 			movie_id: 297802,
@@ -42,15 +42,15 @@ describe('helper', () => {
 			vote_average:  6.9
 		}
 
-    let result = cleanMovies([mockMovie, mockMovie])
-    let expected = [cleanedMovie, cleanedMovie]
-    expect(result).toEqual(expected)
-  })
+		let result = cleanMovies([mockMovie, mockMovie])
+		let expected = [cleanedMovie, cleanedMovie]
+		expect(result).toEqual(expected)
+	})
   
-  it('has method SQL search string that returns a cleaned version of searched string', () => {
-    let mockSearch = 'Harry potter'
-    let result  = SQLsearchString(mockSearch)
-    let expected = 'Harry%20potter'
-    expect(result).toEqual(expected)
-  })
+	it('has method SQL search string that returns a cleaned version of searched string', () => {
+		let mockSearch = 'Harry potter'
+		let result = SQLsearchString(mockSearch)
+		let expected = 'Harry%20potter'
+		expect(result).toEqual(expected)
+	})
 })
