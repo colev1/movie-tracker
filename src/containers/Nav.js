@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { logout } from '../actions';
 import { fetchMovies } from '../thunks/fetchMovies';
+import PropTypes from 'prop-types';
 import './Nav.scss';
 
 export class Nav extends Component {
@@ -48,6 +49,17 @@ export class Nav extends Component {
       </header>
     )
   }
+}
+
+Nav.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string
+  }),
+  logout: PropTypes.func.isRequired,
+  fetchMovies: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({

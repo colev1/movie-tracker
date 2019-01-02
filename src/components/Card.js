@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { deleteFavorite } from '../thunks/deleteFavorite'
 import { postFavorite } from '../thunks/addFavorite'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './Card.scss'
 
 export class Card extends Component {
@@ -24,7 +25,7 @@ export class Card extends Component {
     })
     let favoriteClass = faves ? 'favorite-movie favorite-btn' : 'favorite-btn'
     const posterPath = `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
-    
+
     return (
       <div className="movie-card">
         {this.props.user.name ? <button className={favoriteClass} onClick={this.toggleFavorite}>Favorite</button> : <Link to='/login'><button className={favoriteClass}>Favorite</button></Link>}
@@ -38,6 +39,18 @@ export class Card extends Component {
       </div>
     )
   }
+}
+
+Card.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string
+  }),
+  favorites: PropTypes.arrayOf(PropTypes.object),
+  postFavorite: PropTypes.func.isRequired,
+  deleteFavoriteFromStore: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({

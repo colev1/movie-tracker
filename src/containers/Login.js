@@ -3,16 +3,17 @@ import { fetchFavorites } from '../thunks/fetchFavorites';
 import { connect } from 'react-redux';
 import { createUser } from '../thunks/createUser';
 import { loginUser } from '../thunks/loginUser';
+import PropTypes from 'prop-types';
 import './Login.scss';
 
 export class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: '',
       email: '',
       password: '',
       newUser: false,
-      name: '',
       errorMessage: false
     }
   }
@@ -69,10 +70,6 @@ export class Login extends Component {
 
   render() {
     const { email, password, name } = this.state;
-    let disableSubmit = false;
-    if (!email || !password) {
-      disableSubmit = true;
-    } 
     if (!this.state.newUser) {
       return (
         <section className="login-container">
@@ -80,11 +77,12 @@ export class Login extends Component {
           <div className={this.state.errorMessage ? 'show-error' : 'hide-error'}>E-Mail and Password do not match</div>
           <form onSubmit={this.handleLoginSubmit} className="login-form">
             <input
-              type="text"
+              type="email"
               placeholder="E-Mail"
               value={email}
               name="email"
               onChange={this.handleChange}
+              required
             />
             <input
               type="password"
@@ -92,9 +90,9 @@ export class Login extends Component {
               value={password}
               name="password"
               onChange={this.handleChange}
+              required
             />
-            <button className="login-submit-btn" disabled={disableSubmit}
-            >Submit</button>
+            <button className="login-submit-btn">Submit</button>
           </form>
           <div className="signup-prompt">
             <label>Or are you new to Movie Tracker?</label>
@@ -114,6 +112,7 @@ export class Login extends Component {
               value={name}
               name="name"
               onChange={this.handleChange}
+              required
             />
             <input
               type="email"
@@ -121,6 +120,7 @@ export class Login extends Component {
               value={email}
               name="email"
               onChange={this.handleChange}
+              required
             />
             <input
               type="password"
@@ -128,17 +128,27 @@ export class Login extends Component {
               value={password}
               name="password"
               onChange={this.handleChange}
+              required
             />
-            <button 
-              className="login-submit-btn"
-              disabled={disableSubmit}>
-            Submit
-            </button>
+            <button className="login-submit-btn">Submit</button>
           </form>
         </section>
       )
     }
   }
+}
+
+Login.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string
+  }),
+  error: PropTypes.string.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  createUser: PropTypes.func.isRequired,
+  fetchFavorites: PropTypes.func.isRequired
 }
 
 export const mapStateToProps = (state) => ({
