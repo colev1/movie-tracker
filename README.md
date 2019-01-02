@@ -39,5 +39,6 @@ In the movie-tracker directory, you can run the test files using:
 
 ##### Our App:
 
+![Screenshot of app](app1.png)
 
 
