@@ -1,10 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from 'react'
+import { shallow } from 'enzyme'
 import { Card, mapStateToProps, mapDispatchToProps } from './Card'
-import { connect } from 'react-redux'
-import { postFavorite } from '../thunks/addFavorite';
-import { deleteFavorite } from '../thunks/deleteFavorite';
-import * as actions from '../actions'
+import { postFavorite } from '../thunks/addFavorite'
+import { deleteFavorite } from '../thunks/deleteFavorite'
 
 jest.mock('../thunks/addFavorite')
 jest.mock('../thunks/deleteFavorite')
