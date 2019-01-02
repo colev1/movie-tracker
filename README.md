@@ -1,6 +1,6 @@
 # Movie Tracker 
 
-### Abstract:
+### Description of App:
 
 We built an app in React that...
 
