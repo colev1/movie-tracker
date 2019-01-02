@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SearchBar.scss';
 import { searchMovies } from '../thunks/searchMovies';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 class SearchBar extends Component {
@@ -46,6 +47,10 @@ class SearchBar extends Component {
       </div>
     )
   }
+}
+
+SearchBar.propTypes = {
+  searchMovies: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch) => ({

@@ -3,6 +3,7 @@ import Card from '../components/Card'
 import { connect } from 'react-redux'
 import './MovieContainer.scss'
 import SearchBar from './SearchBar'
+import PropTypes from 'prop-types'
 
 export const MovieContainer = (props) => {
 	let displayedMovies
@@ -37,6 +38,13 @@ export const MovieContainer = (props) => {
 			</div>
 		)
 	}
+}
+
+MovieContainer.propTypes = {
+	movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+	favorites: PropTypes.arrayOf(PropTypes.object),
+	isLoading: PropTypes.bool.isRequired,
+	error: PropTypes.string.isRequired
 }
 
 export const mapStateToProps = (state) => ({
