@@ -45,7 +45,6 @@ describe('fetchMovies', () => {
     
     expect(mockDispatch).toHaveBeenCalledWith(actions.isLoading(false))
   })
-
   
   it('should dispatch cleanMovies if response is ok', async () => {
     const mockMovie = {movie: 'movie1'}
