@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Card.scss'
 import {connect} from 'react-redux';
-import {  deleteFavorite } from '../API';
-import { deleteFavoriteFromStore } from '../actions';
+// import {  deleteFavorite } from '../API';
+import { deleteFavorite } from '../thunks/deleteFavorite';
 import { postFavorite } from '../thunks/addFavorite';
 
 export class Card extends Component {
@@ -17,12 +17,11 @@ export class Card extends Component {
     })
     
     if(!matchingFavorite) {
-      // postFavorite(movie, user.id);
-      console.log(movie, user.id)
       this.props.postFavorite(movie, user.id);
     } else {
-      deleteFavorite(user.id, movie.movie_id);
-      this.props.deleteFavoriteFromStore(movie)
+      // deleteFavorite(user.id, movie.movie_id);
+      // this.props.deleteFavoriteFromStore(movie)
+      this.props.deleteFavoriteFromStore(movie, user.id);
     }
   }
   
@@ -63,7 +62,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   postFavorite: (favorite, uid) => dispatch(postFavorite(favorite, uid)),
-  deleteFavoriteFromStore: (favorite) => dispatch(deleteFavoriteFromStore(favorite))
+  deleteFavoriteFromStore: (movie, uid) => dispatch(deleteFavorite(movie, uid))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
