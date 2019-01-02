@@ -75,14 +75,14 @@ class Login extends Component {
           <div className={this.state.errorMessage ? 'show-error' : 'hide-error'}>E-Mail and Password do not match</div>
           <form onSubmit={this.handleLoginSubmit} className="login-form">
             <input
-              type="email"
+              type="text"
               placeholder="E-Mail"
               value={email}
               name="email"
               onChange={this.handleChange}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               value={password}
               name="password"
@@ -118,7 +118,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               value={password}
               name="password"

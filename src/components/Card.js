@@ -18,7 +18,8 @@ export class Card extends Component {
     
     if(!matchingFavorite) {
       // postFavorite(movie, user.id);
-      this.props.postFavorite(movie);
+      console.log(movie, user.id)
+      this.props.postFavorite(movie, user.id);
     } else {
       deleteFavorite(user.id, movie.movie_id);
       this.props.deleteFavoriteFromStore(movie)
@@ -61,7 +62,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  postFavorite: (favorite) => dispatch(postFavorite(favorite)),
+  postFavorite: (favorite, uid) => dispatch(postFavorite(favorite, uid)),
   deleteFavoriteFromStore: (favorite) => dispatch(deleteFavoriteFromStore(favorite))
 })
 
