@@ -1,10 +1,10 @@
 import { isLoading, searchMovieSuccess, hasErrored } from '../actions'
-import { cleanMovies, SQLsearchString } from '../helper'
+import { cleanMovies, sqlSearchString } from '../helper'
 import apiKey from '../apiKey'
 
 
 export const searchMovies = (searchString) => {
-  const querySearchString = SQLsearchString(searchString)
+  const querySearchString = sqlSearchString(searchString)
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${querySearchString}`
   return async (dispatch) => {
     try {
