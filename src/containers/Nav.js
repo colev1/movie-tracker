@@ -5,7 +5,6 @@ import { logout } from '../actions';
 import { fetchMovies } from '../thunks/fetchMovies';
 import './Nav.scss';
 
-
 export class Nav extends Component {
   constructor() {
     super()
@@ -15,7 +14,7 @@ export class Nav extends Component {
   }
   
   incrementPage = async () => {
-    this.setState({pageNumber: (this.state.pageNumber = this.state.pageNumber + 1)}, await this.nextPage())
+    this.setState({pageNumber: (this.state.pageNumber = this.state.pageNumber + 1)}, await this.nextPage());
   }
 
   decrementPage = async () => {

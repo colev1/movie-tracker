@@ -1,9 +1,9 @@
 .movie-container {
+  background: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 16px;
-  background: black;
   z-index: 1;
 }
 
@@ -11,11 +11,11 @@
 .loading,
 .error {
   color: white;
-  margin-top: 32%;
-  font-size: 36px;
-  text-shadow: 3px 3px #ba0000;
   font-family: 'Bungee Inline', cursive;
+  font-size: 36px;
+  margin-top: 32%;
   margin: 300px 40px 40px 40px;
+  text-shadow: 3px 3px #ba0000;
 }
 
 .hidden {

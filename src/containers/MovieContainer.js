@@ -6,9 +6,9 @@ import SearchBar from './SearchBar'
 
 export const MovieContainer = (props) => {
 	let displayedMovies
-  if (props.match.path === '/favorites') {
+	if (props.match.path === '/favorites') {
 		displayedMovies = props.favorites
-  } else {
+	} else {
 		displayedMovies = props.movies
 	}
 	const movies = displayedMovies.map(movie => {

@@ -8,13 +8,13 @@ $acme-font: 'Acme', sans-serif;
 }
 
 .movie-card {
-  position: relative;
   border-radius: 2px;
   box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
   color: white;
   font-family: $acme-font;
   height: 450px;
   margin: 20px;  
+  position: relative;
   transition-duration: 0.4s;
   width: 300px;
   
@@ -26,22 +26,22 @@ $acme-font: 'Acme', sans-serif;
       filter: blur(5px); 
     } 
     .card-text {
-      width: 80%;
-      transition: opacity .4s linear;
-      transition-delay: .2s;
-      height: 95%;
-      padding: 3px;
-      opacity: 1;
+      align-items: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      position: absolute;
-      margin: 16px;
       font-size: 16px;
+      height: 95%;
+      justify-content: space-between;
+      margin: 16px;
+      opacity: 1;
+      overflow: scroll;
+      padding: 3px;
+      position: absolute;
       text-align: center;
       text-shadow: 2px 2px black;
-      overflow: scroll;
+      transition-delay: .2s;
+      transition: opacity .4s linear;
+      width: 80%;
   
       &::-webkit-scrollbar {
         display: none;
@@ -64,9 +64,8 @@ $acme-font: 'Acme', sans-serif;
 }
 
 .favorite-btn {
-  position: absolute;
-  z-index: 5;
   left: 200px;
+  position: absolute;
   top: 9px;
 }
 

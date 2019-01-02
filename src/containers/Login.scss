@@ -3,23 +3,23 @@
 }
 
 .login-container {
-  position: relative;
-  top: 250px;
-  border: 2px solid white;
-  width: 45%;
-  margin: 0 auto;
-  height: 350px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
   background-color: #ba0000;
-  color: white;
   border-radius: 20px;
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
   font-size: 20px;
+  font-weight: bold;
+  height: 350px;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
   text-shadow: 2px 2px black;
+  top: 250px;
+  width: 45%;
 }
 
 .login-form {
@@ -31,13 +31,13 @@
 }
 
 input {
-  margin: 10px;
-  border: 2px solid black;
-  padding: 5px 5px;
-  width: 130px;
   border-radius: 10px;
-  transition-duration: 0.3s;
+  border: 2px solid black;
+  margin: 10px;
   outline: none;
+  padding: 5px 5px;
+  transition-duration: 0.3s;
+  width: 130px;
 
   &:focus {
     transform: scale(1.1);
