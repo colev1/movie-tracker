@@ -80,3 +80,13 @@ h4 {
     transform: scale(0.9);
   }
 }
+
+@media only screen and (max-width: 1040px) {
+  .logo {
+    font-size: 2em;
+  }
+
+  button {
+    font-size: 0.7em;
+  }
+}
