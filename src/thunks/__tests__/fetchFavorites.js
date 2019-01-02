@@ -1,18 +1,18 @@
-import { fetchMovies } from './fetchMovies'
-import { isLoading, hasErrored, fetchMovieSuccess } from '../actions'
+import { fetchFavorites } from '../fetchFavorites'
+import { isLoading, hasErrored, addFavorites } from '../../actions'
 
 
 describe('fetchMovies', () => {
-  let mockUrl
+  let mockMovie
   let mockDispatch
   
   beforeEach(() => {
-    mockUrl = 'www.url.com'
+    mockMovie = { movie: 'great movie', movie_id: 2 }
     mockDispatch = jest.fn()
   })
   
   it('calls dispatch with the isLoading action', () => {
-    const thunk = fetchMovies()
+    const thunk = fetchFavorites(mockMovie, 1)
     thunk(mockDispatch)
   
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(true))
@@ -24,7 +24,7 @@ describe('fetchMovies', () => {
       statusText: 'Something went wrong'
     }))
   
-    const thunk = fetchMovies()
+    const thunk = fetchFavorites(mockMovie, 1)
     
     await thunk(mockDispatch)
     
@@ -36,7 +36,7 @@ describe('fetchMovies', () => {
       ok: true
     }))
     
-    const thunk = fetchMovies()
+    const thunk = fetchFavorites(mockMovie, 1)
     
     await thunk(mockDispatch)
     

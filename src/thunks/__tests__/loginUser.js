@@ -1,18 +1,20 @@
-import { deleteFavorite } from './deleteFavorite'
-import { isLoading, hasErrored, deleteFavoriteFromStore } from '../actions'
+import { loginUser } from '../loginUser'
+import { isLoading, hasErrored, searchMovieSuccess } from '../../actions'
+import { cleanMovies, SQLsearchString } from '../../helper'
 
+jest.mock('../../helper')
 
 describe('fetchMovies', () => {
-  let mockMovie
+  let mockUrl
   let mockDispatch
   
   beforeEach(() => {
-    mockMovie = { movie: 'great movie', movie_id: 2 }
+    mockUrl = 'www.url.com'
     mockDispatch = jest.fn()
   })
   
   it('calls dispatch with the isLoading action', () => {
-    const thunk = deleteFavorite(mockMovie, 1)
+    const thunk = loginUser()
     thunk(mockDispatch)
   
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(true))
@@ -24,7 +26,7 @@ describe('fetchMovies', () => {
       statusText: 'Something went wrong'
     }))
   
-    const thunk = deleteFavorite(mockMovie, 1)
+    const thunk = loginUser()
     
     await thunk(mockDispatch)
     
@@ -36,7 +38,7 @@ describe('fetchMovies', () => {
       ok: true
     }))
     
-    const thunk = deleteFavorite(mockMovie, 1)
+    const thunk = loginUser()
     
     await thunk(mockDispatch)
     

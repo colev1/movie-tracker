@@ -84,7 +84,12 @@ ShallowWrapper {
         <h1
           className="hidden"
         >
-          You have no favorited movies! Sign in to favorite a movie.
+          You have no favorited movies silly!
+        </h1>,
+        <h1
+          className="hidden"
+        >
+          No movies matched your search query.
         </h1>,
       ],
     },
@@ -187,11 +192,23 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "You have no favorited movies! Sign in to favorite a movie.",
+          "children": "You have no favorited movies silly!",
           "className": "hidden",
         },
         "ref": null,
-        "rendered": "You have no favorited movies! Sign in to favorite a movie.",
+        "rendered": "You have no favorited movies silly!",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "No movies matched your search query.",
+          "className": "hidden",
+        },
+        "ref": null,
+        "rendered": "No movies matched your search query.",
         "type": "h1",
       },
     ],
@@ -236,7 +253,12 @@ ShallowWrapper {
           <h1
             className="hidden"
           >
-            You have no favorited movies! Sign in to favorite a movie.
+            You have no favorited movies silly!
+          </h1>,
+          <h1
+            className="hidden"
+          >
+            No movies matched your search query.
           </h1>,
         ],
       },
@@ -339,11 +361,23 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "You have no favorited movies! Sign in to favorite a movie.",
+            "children": "You have no favorited movies silly!",
             "className": "hidden",
           },
           "ref": null,
-          "rendered": "You have no favorited movies! Sign in to favorite a movie.",
+          "rendered": "You have no favorited movies silly!",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "No movies matched your search query.",
+            "className": "hidden",
+          },
+          "ref": null,
+          "rendered": "No movies matched your search query.",
           "type": "h1",
         },
       ],
