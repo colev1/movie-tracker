@@ -2,8 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Card, mapStateToProps, mapDispatchToProps } from './Card'
 import { connect } from 'react-redux'
-import * as API from '../API';
+import { postFavorite } from '../thunks/addFavorite';
+import { deleteFavorite } from '../thunks/deleteFavorite';
 import * as actions from '../actions'
+
+jest.mock('../thunks/addFavorite')
+jest.mock('../thunks/deleteFavorite')
 
 
 describe('Card', () => {
@@ -22,7 +26,7 @@ describe('Card', () => {
         key={ mockMovie.title }
         favorites= { mockFavorites }
         user={ mockUser }
-        addFavorite = { jest.fn() }
+        postFavorite = { jest.fn() }
         deleteFavoriteFromStore = { jest.fn() }
       />
     )
@@ -40,23 +44,19 @@ describe('Card', () => {
         key={ mockMovie.title }
         favorites= { mockFavorites }
         user={ mockUser }
-        addFavorite = { jest.fn() }
+        postFavorite = { jest.fn() }
         deleteFavoriteFromStore = { jest.fn() }
       />
     )
-    API.postFavorite = jest.fn()
-    const button = wrapper.find('button');
-    const handleSpy = jest.spyOn(wrapper.instance(), 'toggleFavorite')
-    button.simulate('click');
-    expect(API.postFavorite).toHaveBeenCalled()
+    wrapper.instance().toggleFavorite()
+
+    expect(wrapper.instance().props.postFavorite).toHaveBeenCalled()
   })
 
   it('should call deleteFavorite if there is a match', () => {
-    API.deleteFavorite = jest.fn()
-    const button = wrapper.find('button');
-    const handleSpy = jest.spyOn(wrapper.instance(), 'toggleFavorite')
-    button.simulate('click');
-    expect(API.deleteFavorite).toHaveBeenCalled()
+    wrapper.instance().toggleFavorite()
+
+    expect(wrapper.instance().props.deleteFavoriteFromStore).toHaveBeenCalled()
   })
 
   it('should not display tooltip text if there is a user in store', () => {
@@ -71,7 +71,7 @@ describe('Card', () => {
         key={ mockMovie.title }
         favorites= { mockFavorites }
         user={{ name: null }}
-        addFavorite = { jest.fn() }
+        postFavorite = { jest.fn() }
         deleteFavoriteFromStore = { jest.fn() }
       />
     )
@@ -100,16 +100,16 @@ describe('Card', () => {
     })
     
     it('should call dispatch with the correct params', () => {
-      const actionToDispatch = actions.addFavorite(favorite)
+      const actionToDispatch = postFavorite(favorite, 1)
       const result = mapDispatchToProps(mockDispatch)
-      result.addFavorite(favorite)
+      result.postFavorite(favorite, 1)
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
 
     it('should call dispatch with the correct params', () => {
-      const actionToDispatch = actions.deleteFavoriteFromStore(favorite)
+      const actionToDispatch = deleteFavorite(favorite, 1)
       const result = mapDispatchToProps(mockDispatch)
-      result.deleteFavoriteFromStore(favorite)
+      result.deleteFavoriteFromStore(favorite, 1)
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
   })

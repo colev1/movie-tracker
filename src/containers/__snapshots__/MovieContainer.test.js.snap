@@ -3,31 +3,36 @@
 exports[`MovieContainer should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(MovieContainer)
+  Symbol(enzyme.__unrendered__): <MovieContainer
     favorites={
       Array [
         Object {
+          "movie_id": 1,
           "title": "movie1",
         },
         Object {
+          "movie_id": 2,
           "title": "movie2",
         },
       ]
     }
     match={
       Object {
-        "path": "/favorites",
+        "path": "/",
       }
     }
     movies={
       Array [
         Object {
+          "movie_id": 1,
           "title": "movie1",
         },
         Object {
+          "movie_id": 2,
           "title": "movie2",
         },
         Object {
+          "movie_id": 3,
           "title": "movie3",
         },
       ]
@@ -44,59 +49,305 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "children": [Function],
+      "children": Array [
+        <div
+          className="movie-container"
+        >
+          <Connect(SearchBar) />
+          <Connect(Card)
+            movie={
+              Object {
+                "movie_id": 1,
+                "title": "movie1",
+              }
+            }
+          />
+          <Connect(Card)
+            movie={
+              Object {
+                "movie_id": 2,
+                "title": "movie2",
+              }
+            }
+          />
+          <Connect(Card)
+            movie={
+              Object {
+                "movie_id": 3,
+                "title": "movie3",
+              }
+            }
+          />
+        </div>,
+        <h1
+          className="hidden"
+        >
+          You have no favorited movies! Sign in to favorite a movie.
+        </h1>,
+      ],
     },
     "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "_calculateChangedBits": null,
-      "_context": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Connect(SearchBar) />,
+            Array [
+              <Connect(Card)
+                movie={
+                  Object {
+                    "movie_id": 1,
+                    "title": "movie1",
+                  }
+                }
+              />,
+              <Connect(Card)
+                movie={
+                  Object {
+                    "movie_id": 2,
+                    "title": "movie2",
+                  }
+                }
+              />,
+              <Connect(Card)
+                movie={
+                  Object {
+                    "movie_id": 3,
+                    "title": "movie3",
+                  }
+                }
+              />,
+            ],
+          ],
+          "className": "movie-container",
         },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": null,
-        "_currentValue2": null,
-        "_threadCount": 0,
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "class",
+            "props": Object {
+              "movie": Object {
+                "movie_id": 1,
+                "title": "movie1",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "class",
+            "props": Object {
+              "movie": Object {
+                "movie_id": 2,
+                "title": "movie2",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "3",
+            "nodeType": "class",
+            "props": Object {
+              "movie": Object {
+                "movie_id": 3,
+                "title": "movie3",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
       },
-    },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "You have no favorited movies! Sign in to favorite a movie.",
+          "className": "hidden",
+        },
+        "ref": null,
+        "rendered": "You have no favorited movies! Sign in to favorite a movie.",
+        "type": "h1",
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "children": [Function],
+        "children": Array [
+          <div
+            className="movie-container"
+          >
+            <Connect(SearchBar) />
+            <Connect(Card)
+              movie={
+                Object {
+                  "movie_id": 1,
+                  "title": "movie1",
+                }
+              }
+            />
+            <Connect(Card)
+              movie={
+                Object {
+                  "movie_id": 2,
+                  "title": "movie2",
+                }
+              }
+            />
+            <Connect(Card)
+              movie={
+                Object {
+                  "movie_id": 3,
+                  "title": "movie3",
+                }
+              }
+            />
+          </div>,
+          <h1
+            className="hidden"
+          >
+            You have no favorited movies! Sign in to favorite a movie.
+          </h1>,
+        ],
       },
       "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "_calculateChangedBits": null,
-        "_context": Object {
-          "$$typeof": Symbol(react.context),
-          "Consumer": [Circular],
-          "Provider": Object {
-            "$$typeof": Symbol(react.provider),
-            "_context": [Circular],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Connect(SearchBar) />,
+              Array [
+                <Connect(Card)
+                  movie={
+                    Object {
+                      "movie_id": 1,
+                      "title": "movie1",
+                    }
+                  }
+                />,
+                <Connect(Card)
+                  movie={
+                    Object {
+                      "movie_id": 2,
+                      "title": "movie2",
+                    }
+                  }
+                />,
+                <Connect(Card)
+                  movie={
+                    Object {
+                      "movie_id": 3,
+                      "title": "movie3",
+                    }
+                  }
+                />,
+              ],
+            ],
+            "className": "movie-container",
           },
-          "_calculateChangedBits": null,
-          "_currentRenderer": null,
-          "_currentRenderer2": null,
-          "_currentValue": null,
-          "_currentValue2": null,
-          "_threadCount": 0,
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "class",
+              "props": Object {
+                "movie": Object {
+                  "movie_id": 1,
+                  "title": "movie1",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "2",
+              "nodeType": "class",
+              "props": Object {
+                "movie": Object {
+                  "movie_id": 2,
+                  "title": "movie2",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "3",
+              "nodeType": "class",
+              "props": Object {
+                "movie": Object {
+                  "movie_id": 3,
+                  "title": "movie3",
+                },
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
-      },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "You have no favorited movies! Sign in to favorite a movie.",
+            "className": "hidden",
+          },
+          "ref": null,
+          "rendered": "You have no favorited movies! Sign in to favorite a movie.",
+          "type": "h1",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

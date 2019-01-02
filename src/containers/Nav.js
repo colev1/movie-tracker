@@ -5,7 +5,8 @@ import { logout } from '../actions';
 import { fetchMovies } from '../thunks/fetchMovies';
 import './Nav.scss';
 
-class Nav extends Component {
+
+export class Nav extends Component {
   constructor() {
     super()
     this.state = {
@@ -50,11 +51,11 @@ class Nav extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   fetchMovies: (page) => dispatch(fetchMovies(page))
 })

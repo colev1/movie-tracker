@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { createUser } from '../thunks/createUser';
 import { loginUser } from '../thunks/loginUser';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -138,11 +138,11 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loginUser: (user) => dispatch(loginUser(user)),
   fetchFavorites: (uid) => dispatch(fetchFavorites(uid)),
   createUser: (user) => dispatch(createUser(user))

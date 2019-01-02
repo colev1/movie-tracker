@@ -1,30 +1,45 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import MovieContainer from './MovieContainer'
-import { mapStateToProps } from './MovieContainer'
+import { shallow, mount } from 'enzyme';
+import { MovieContainer, mapStateToProps } from './MovieContainer'
 import Card from '../components/Card'
 import { connect } from 'react-redux'
 
 
 describe('MovieContainer', () => {
-  let wrapper
   let mockFavorites
   let mockMovies
+  let wrapper
 
   beforeEach(() => {
-    mockMovies = [{ title: 'movie1'}, {title: 'movie2'}, {title: 'movie3' }]
-    mockFavorites = [{ title: 'movie1'}, {title: 'movie2' }]
-    wrapper = shallow(
+    mockMovies = [{ title: 'movie1', movie_id: 1}, {title: 'movie2', movie_id: 2}, {title: 'movie3', movie_id: 3 }]
+    mockFavorites = [{ title: 'movie1', movie_id: 1}, {title: 'movie2', movie_id: 2 }]
+     wrapper = shallow(
       <MovieContainer
         favorites={mockFavorites}
         movies={mockMovies}
-        match={{path: '/favorites'}}
+        match={{path: '/'}}
       />
     )
   })
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should return three movies', () => {
+    expect(wrapper.find(Card).length).toEqual(3)
+  })
+
+  it('should return three favorites', () => {
+    wrapper = shallow(
+      <MovieContainer
+        favorites={ mockFavorites }
+        movies={ mockMovies }
+        match={{ path: '/favorites' }}
+      />
+    )
+    
+    expect(wrapper.find(Card).length).toEqual(2)
   })
 
   describe('mapStateToProps', () => {

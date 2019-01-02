@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import './MovieContainer.scss'
 import SearchBar from './SearchBar'
 
-const MovieContainer = (props) => {
+
+export const MovieContainer = (props) => {
   let displayedMovies;
   if (props.match.path === '/favorites') {
     displayedMovies = props.favorites;
