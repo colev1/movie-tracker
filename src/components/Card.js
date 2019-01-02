@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { deleteFavorite } from '../thunks/deleteFavorite'
 import { postFavorite } from '../thunks/addFavorite'
+import { Link } from 'react-router-dom'
 import './Card.scss'
 
 export class Card extends Component {
-
   toggleFavorite = () => {
     const {movie, user, favorites} = this.props
     const matchingFavorite = favorites.find(faveMovie => {
@@ -23,18 +23,11 @@ export class Card extends Component {
       return fave.movie_id === this.props.movie.movie_id
     })
     let favoriteClass = faves ? 'favorite-movie favorite-btn' : 'favorite-btn'
-    let loggedIn = this.props.user.name ? false : true
     const posterPath = `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
     
     return (
       <div className="movie-card">
-        <button className={favoriteClass}
-          disabled={loggedIn} 
-          onClick={this.toggleFavorite}
-          data-tooltip={loggedIn ? 'Must be signed in to favorite movies' : null}
-        >
-          Favorite
-        </button>
+        {this.props.user.name ? <button className={favoriteClass} onClick={this.toggleFavorite}>Favorite</button> : <Link to='/login'><button className={favoriteClass}>Favorite</button></Link>}
         <article className="card-text">
           <h1 className="movie-title">{this.props.movie.title}</h1>
           <p> {this.props.movie.overview} </p>

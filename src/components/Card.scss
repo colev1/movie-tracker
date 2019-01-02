@@ -9,7 +9,7 @@ $acme-font: 'Acme', sans-serif;
 
 .movie-card {
   border-radius: 2px;
-  box-shadow: 4px 6px 6px rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
   color: white;
   font-family: $acme-font;
   height: 450px;
@@ -21,6 +21,7 @@ $acme-font: 'Acme', sans-serif;
   &:hover {
     transform: scale(1.1);
     transition-duration: 0.4s;
+    box-shadow: 3px 3px 8px red;
     img {
       filter: blur(5px); 
     } 
@@ -66,21 +67,14 @@ $acme-font: 'Acme', sans-serif;
   left: 200px;
   position: absolute;
   top: 9px;
-  z-index: 5;
-
-  &:disabled {
-    background-color: grey;
-    opacity: 0.5;
-  }
-
-  &:hover:disabled {
-    border-color: white;
-    color: white;
-    cursor: no-drop;
-    transform: scale(1);
-  }
 }
 
 .favorite-movie {
   background-color: goldenrod;
+
+  &:hover {
+    background-color: goldenrod;
+    color: white;
+    border-color: white;
+  }
 }
