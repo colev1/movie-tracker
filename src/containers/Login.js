@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import * as API from '../API';
 import './Login.scss';
-import { addFavorites } from '../actions';
+import {fetchFavorites} from '../thunks/fetchFavorites';
 import { connect } from 'react-redux';
 import { createUser } from '../thunks/createUser';
 import { loginUser } from '../thunks/loginUser';
@@ -47,8 +46,11 @@ class Login extends Component {
     const {password} = this.state
     const user = {password, email}
     await this.props.loginUser(user)
-    const favorites = await API.fetchFavorites(this.props.user.id);
-    this.props.addFavorites(favorites);
+    // const favorites = await API.fetchFavorites(this.props.user.id);
+
+    // this.props.addFavorites(favorites);
+
+    this.props.fetchFavorites(this.props.user.id);
     this.resetState();
     this.props.history.push('/');
   }
@@ -63,7 +65,7 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password, verifiedPassword, name } = this.state;
+    const { email, password, name } = this.state;
     let disableSubmit = false;
     if (!email || !password) {
       disableSubmit = true;
@@ -142,7 +144,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (user) => dispatch(loginUser(user)),
-  addFavorites: (favorites) => dispatch(addFavorites(favorites)),
+  fetchFavorites: (uid) => dispatch(fetchFavorites(uid)),
   createUser: (user) => dispatch(createUser(user))
 })
 

@@ -1,12 +1,20 @@
-export const fetchFavorites = async (userId) => {
+import { isLoading, addFavorites, hasErrored } from '../actions';
+
+export const fetchFavorites = (userId) => {
   const url = `http://localhost:3000/api/users/${userId}/favorites`;
   return async (dispatch) => {
     try {
+    dispatch(isLoading(true))
     const response = await fetch(url)
+    if (!response.ok) {
+      throw Error(response.statusText)
+    }
+    dispatch(isLoading(false))
     const result = await response.json()
-    return result.data
+    const movies = result.data
+    dispatch(addFavorites(movies));
   } catch(err) {
-    console.log(err.message)
+    dispatch(hasErrored(err.message))
     }
   }
 }

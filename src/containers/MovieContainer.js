@@ -7,7 +7,7 @@ import SearchBar from './SearchBar'
 const MovieContainer = (props) => {
   let displayedMovies;
   if (props.match.path === '/favorites') {
-    displayedMovies = props.favorites
+    displayedMovies = props.favorites;
   } else {
     displayedMovies = props.movies
   }
@@ -15,10 +15,15 @@ const MovieContainer = (props) => {
     return <Card movie={movie} key={movie.movie_id}/>
   })
   return (
-    <div className="movie-container">
+    <div>
+    <div className={displayedMovies.length===0 ? 'hidden' : 'movie-container'}>
       <SearchBar />
       { movies }
     </div>
+    <h1 className={displayedMovies.length === 0 ? 'no-movies movie-container':'hidden'}>
+      You have no favorited movies! Sign in to favorite a movie.
+    </h1>
+     </div>
   )
 }
 
