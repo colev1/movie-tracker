@@ -42,7 +42,30 @@ describe('Nav', () => {
     expect(wrapper.find('h4').text()).toEqual('')
   })
 
-  describe('mapStateToProps', () => {
+  it('should increment the page', () => {
+    wrapper.setState({ pageNumber: 1})
+    wrapper.instance().incrementPage()
+    expect(wrapper.instance().state.pageNumber).toEqual(2)
+  })
+
+  it('should decrement the page if greater than one', () => {
+    wrapper.setState({ pageNumber: 4})
+    wrapper.instance().decrementPage()
+    expect(wrapper.instance().state.pageNumber).toEqual(3)
+  })
+
+  it('should not decrement the page if less than two', () => {
+    wrapper.setState({ pageNumber: 1})
+    wrapper.instance().decrementPage()
+    expect(wrapper.instance().state.pageNumber).toEqual(1)
+  })
+
+  it('should call fetchMovies when navigating home', () => {
+    wrapper.instance().navToHomePage()
+    expect(wrapper.instance().props.fetchMovies).toHaveBeenCalled()
+  })
+
+  describe ('mapStateToProps', () => {
     it('should return an object with a user', () => {
       const mockState = {
         user: { name: 'Cole', id: 1 },
