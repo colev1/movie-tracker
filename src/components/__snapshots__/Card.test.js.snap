@@ -47,8 +47,6 @@ ShallowWrapper {
       "children": Array [
         <button
           className="favorite-movie favorite-btn"
-          data-tooltip={null}
-          disabled={false}
           onClick={[Function]}
         >
           Favorite
@@ -86,8 +84,6 @@ ShallowWrapper {
         "props": Object {
           "children": "Favorite",
           "className": "favorite-movie favorite-btn",
-          "data-tooltip": null,
-          "disabled": false,
           "onClick": [Function],
         },
         "ref": null,
@@ -186,8 +182,6 @@ ShallowWrapper {
         "children": Array [
           <button
             className="favorite-movie favorite-btn"
-            data-tooltip={null}
-            disabled={false}
             onClick={[Function]}
           >
             Favorite
@@ -225,8 +219,6 @@ ShallowWrapper {
           "props": Object {
             "children": "Favorite",
             "className": "favorite-movie favorite-btn",
-            "data-tooltip": null,
-            "disabled": false,
             "onClick": [Function],
           },
           "ref": null,
