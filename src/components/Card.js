@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Card.scss'
 import {connect} from 'react-redux';
-// import {  deleteFavorite } from '../API';
 import { deleteFavorite } from '../thunks/deleteFavorite';
 import { postFavorite } from '../thunks/addFavorite';
 
@@ -19,8 +18,6 @@ export class Card extends Component {
     if(!matchingFavorite) {
       this.props.postFavorite(movie, user.id);
     } else {
-      // deleteFavorite(user.id, movie.movie_id);
-      // this.props.deleteFavoriteFromStore(movie)
       this.props.deleteFavoriteFromStore(movie, user.id);
     }
   }

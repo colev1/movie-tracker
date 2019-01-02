@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import './MovieContainer.scss'
 import SearchBar from './SearchBar'
 
-
 const MovieContainer = (props) => {
   let displayedMovies;
   if (props.match.path === '/favorites') {
@@ -13,7 +12,7 @@ const MovieContainer = (props) => {
     displayedMovies = props.movies
   }
   const movies = displayedMovies.map(movie => {
-    return <Card movie={movie} key={movie.title}/>
+    return <Card movie={movie} key={movie.movie_id}/>
   })
   return (
     <div className="movie-container">

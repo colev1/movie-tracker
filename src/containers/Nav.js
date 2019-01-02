@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { logout } from '../actions'
-import { fetchMovies } from '../thunks/fetchMovies'
+import { logout } from '../actions';
+import { fetchMovies } from '../thunks/fetchMovies';
 import './Nav.scss';
-
 
 class Nav extends Component {
   constructor() {
