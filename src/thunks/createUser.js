@@ -17,7 +17,13 @@ export const createUser = (user) => {
       }
       dispatch(isLoading(false))
       const newUser = await response.json();
-      dispatch(loginUserAction(newUser))
+      const newUserToBeLoggedIn = {
+        id: newUser.id,
+        email: user.email,
+        password: user.password,
+        name: user.name
+      }
+      dispatch(loginUserAction(newUserToBeLoggedIn))
     } catch(err) {
       dispatch(hasErrored(err.message));
     }
