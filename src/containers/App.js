@@ -6,6 +6,7 @@ import Login from './Login';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { fetchMovies } from '../thunks/fetchMovies'
 import { connect } from 'react-redux'
+import ErrorPage from '../components/ErrorPage';
 
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route exact path='/' component={ MovieContainer } />
           <Route path='/login' component={ Login } />
           <Route path='/favorites' component={ MovieContainer } />
+          <Route component={ ErrorPage } />
         </Switch>
       </div>
     );
