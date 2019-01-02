@@ -1,14 +1,15 @@
 # Movie Tracker 
 
 ### Description of App:
-In this application, we utilized The Movie DB API to create a personalized movie application to allow users to view, favorite, and search for movies within the database. The main goal of the project was to allow users to create accounts, favorite movies, and then be able to view those favorited movies when signing back in at a later time. This application contains a backend server to validate users as well as a client-side frontend created using create-react-app. 
+In this application, we utilized The Movie DB API to create a personalized movie application to allow users to view, favorite, and search for movies within the database. The main goal of the project was to allow users to create accounts, favorite movies, and then be able to view those favorited movies when signing back in at a later time. This application contains a backend server to validate users as well as a client-side frontend created using create-react-app. We used react, redux, react router, and redux thunk middleware to create the front end application.
 
 ### Tech used:
 * React
-* React-Redux
-* Browser Router
-* Thunks
+* Redux
+* React Router
+* Redux-Thunk Middleware
 * Jest
+* Enzyme
 
 ### Setup:
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
