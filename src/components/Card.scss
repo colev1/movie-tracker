@@ -18,33 +18,34 @@ $acme-font: 'Acme', sans-serif;
   transition-duration: 0.4s;
   width: 300px;
   
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  
   &:hover {
     transform: scale(1.1);
     transition-duration: 0.4s;
     img {
       filter: blur(5px); 
-    }
-    .card-text {
-      width: 80%;
-      transition: opacity .4s linear;
-      transition-delay: .2s;
-      height: 95%;
-      padding: 3px;
-      opacity: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      position: absolute;
-      margin: 16px;
-      font-size: 16px;
-      text-align: center;
-      text-shadow: 2px 2px black;
-      overflow: scroll;
+    } 
+  }
+
+  .card-text {
+    width: 80%;
+    transition: opacity .4s linear;
+    transition-delay: .2s;
+    height: 95%;
+    padding: 3px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    margin: 16px;
+    font-size: 16px;
+    text-align: center;
+    text-shadow: 2px 2px black;
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 }
