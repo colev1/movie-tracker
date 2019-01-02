@@ -15,7 +15,6 @@ $acme-font: 'Acme', sans-serif;
   font-family: $acme-font;
   height: 450px;
   margin: 20px;  
-  overflow: scroll;
   transition-duration: 0.4s;
   width: 300px;
   &:hover {
@@ -27,9 +26,9 @@ $acme-font: 'Acme', sans-serif;
     }
     .card-text {
       width: 80%;
-      transition: ease-in .4s;
-      transition-delay: .3s;
-      height: 80%;
+      transition: opacity .4s linear;
+      transition-delay: .2s;
+      height: 78%;
       padding: 3px;
       opacity: 1;
       display: flex;
@@ -37,7 +36,6 @@ $acme-font: 'Acme', sans-serif;
       justify-content: space-between;
       align-items: center;
       position: absolute;
-      /*left: 0;*/
       margin: 16px;
       font-size: 16px;
       text-align: center;
@@ -47,7 +45,7 @@ $acme-font: 'Acme', sans-serif;
 }
 
 .movie-title {
-  font-size: 36px;
+  font-size: 34px;
   -webkit-text-stroke-width: .1px;
   -webkit-text-stroke-color: black;
 }
