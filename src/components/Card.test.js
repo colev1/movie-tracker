@@ -71,9 +71,7 @@ describe('Card', () => {
 				deleteFavoriteFromStore = { jest.fn() }
 			/>
 		)
-
 		expect(wrapper.find('Link').prop('to')).toEqual('/login');
-
 	})
 
 	describe('mapStateToProps', () => {
