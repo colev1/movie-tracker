@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search bar should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SearchBar
+    searchMovies={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="search-input"
+          name="search"
+          onChange={[Function]}
+          placeholder="Search the Database by any keyword!"
+          type="text"
+          value=""
+        />
+        <button
+          className="search-btn"
+        >
+          Search!
+        </button>
+      </form>,
+      "className": "search-bar-div",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            className="search-input"
+            name="search"
+            onChange={[Function]}
+            placeholder="Search the Database by any keyword!"
+            type="text"
+            value=""
+          />,
+          <button
+            className="search-btn"
+          >
+            Search!
+          </button>,
+        ],
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "search-input",
+            "name": "search",
+            "onChange": [Function],
+            "placeholder": "Search the Database by any keyword!",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Search!",
+            "className": "search-btn",
+          },
+          "ref": null,
+          "rendered": "Search!",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <form
+          onSubmit={[Function]}
+        >
+          <input
+            className="search-input"
+            name="search"
+            onChange={[Function]}
+            placeholder="Search the Database by any keyword!"
+            type="text"
+            value=""
+          />
+          <button
+            className="search-btn"
+          >
+            Search!
+          </button>
+        </form>,
+        "className": "search-bar-div",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="search-input"
+              name="search"
+              onChange={[Function]}
+              placeholder="Search the Database by any keyword!"
+              type="text"
+              value=""
+            />,
+            <button
+              className="search-btn"
+            >
+              Search!
+            </button>,
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "search-input",
+              "name": "search",
+              "onChange": [Function],
+              "placeholder": "Search the Database by any keyword!",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Search!",
+              "className": "search-btn",
+            },
+            "ref": null,
+            "rendered": "Search!",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

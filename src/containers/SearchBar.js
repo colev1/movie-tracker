@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   constructor() {
     super()
     this.state = {
@@ -42,7 +42,7 @@ class SearchBar extends Component {
             className="search-input"
             onChange={this.handleChange}
           />
-          <button>Search!</button>
+          <button className='search-btn'>Search!</button>
         </form>
       </div>
     )
@@ -53,7 +53,7 @@ SearchBar.propTypes = {
   searchMovies: PropTypes.func.isRequired
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   searchMovies: (search) => dispatch(searchMovies(search))
 })
 
