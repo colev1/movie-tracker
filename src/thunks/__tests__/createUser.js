@@ -53,7 +53,6 @@ describe('fetchMovies', () => {
       })
     }))
 
-
     const thunk = createUser(mockUser)
     
     await thunk(mockDispatch)
