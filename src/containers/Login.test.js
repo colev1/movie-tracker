@@ -22,6 +22,8 @@ describe('Login', () => {
 				loginUser = { jest.fn() }
 				fetchFavorites = { jest.fn() }
 				createUser = { jest.fn() }
+				error = { 'error' }
+				user = {{ name: 'Kylie', id: 1 }}
 			/>
 		)
 	})
@@ -45,7 +47,6 @@ describe('Login', () => {
 		expect(wrapper.state().newUser).toEqual(true)  
 	})
 
-
 	it('should set reset state if sign up is clicked', () => {
 		const spy = jest.spyOn(wrapper.instance(), 'resetState')
 		wrapper.find('button').at(1).simulate('click')
@@ -63,6 +64,72 @@ describe('Login', () => {
 
 		expect(handleChangeSpy).toHaveBeenCalled()
 		expect(wrapper.state().email).toEqual('Cody@Cole.com')
+	})
+
+	it('should set an error message in state if props.error is true', () => {
+		wrapper.setState({ errorMessage: false })
+		wrapper.instance().handleServerResponse()
+		expect(wrapper.instance().state.errorMessage).toEqual(true)
+	})
+
+	it('should set an error message in state if props.error is true', () => {
+		wrapper.instance().handleServerResponse()
+		expect(wrapper.instance().state.errorMessage).toEqual(true)
+	})
+
+	it('should call handleNewUserSubmit', () => {
+		wrapper.instance().setState({ newUser: true })
+		const spy = jest.spyOn(wrapper.instance(), 'handleNewUserSubmit')
+		wrapper.instance().forceUpdate()
+		wrapper.find('form').simulate('submit')
+		expect(spy).toHaveBeenCalled()
+	})
+
+	it('should call handleLoginSubmit', () => {
+		const spy = jest.spyOn(wrapper.instance(), 'handleLoginSubmit')
+		wrapper.instance().forceUpdate()
+		wrapper.find('form').simulate('submit')
+		expect(spy).toHaveBeenCalled()
+	})
+
+	it('should call handleServerResponse in handleNewUserSubmit', async () => {
+		const mockEvent = {
+    	preventDefault() {},
+    	target: { value: 'name', name: 'Cody' }
+   	}
+		wrapper.instance().handleServerResponse = jest.fn()
+		await wrapper.instance().handleNewUserSubmit(mockEvent)
+		expect(wrapper.instance().handleServerResponse).toHaveBeenCalled()
+	})
+
+	it('should call handleServerResponse in handleLoginSubmit', async () => {
+		const mockEvent = {
+    	preventDefault() {},
+    	target: { value: 'name', name: 'Cody' }
+   	}
+		wrapper.instance().handleServerResponse = jest.fn()
+		await wrapper.instance().handleLoginSubmit(mockEvent)
+		expect(wrapper.instance().handleServerResponse).toHaveBeenCalled()
+	})
+
+	it('should call fetchFavorites if props.error is false', () => {
+		wrapper = shallow(
+			<Login
+				loginUser = { jest.fn() }
+				fetchFavorites = { jest.fn() }
+				createUser = { jest.fn() }
+				error = { '' }
+				user = {{ name: 'Kylie', id: 1 }}
+				history = { [] }
+			/>
+		)
+		wrapper.instance().handleServerResponse()
+		expect(wrapper.instance().props.fetchFavorites).toHaveBeenCalled()
+	})
+
+	it('should have a class of show-error if there is an error in state', () => {
+		wrapper.instance().setState({ errorMessage: true, newUser: true })
+		expect(wrapper.find('div').hasClass('show-error')).toEqual(true)
 	})
 
 	describe('mapStateToProps', () => {
