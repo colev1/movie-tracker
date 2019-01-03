@@ -1,3 +1,4 @@
+
 import {cleanMovies, sqlSearchString } from './helper'
 
 describe('helper files', () => {
