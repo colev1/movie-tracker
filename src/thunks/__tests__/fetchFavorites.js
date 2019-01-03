@@ -42,4 +42,20 @@ describe('fetchMovies', () => {
     
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
+
+  it('should dispatch addFavorites if response is ok', async () => {
+    const mockFavorite = {movie: 'movie1'}
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        data: mockFavorite
+      })
+    }))
+    const thunk = fetchFavorites()
+    
+    await thunk(mockDispatch)
+
+    expect(mockDispatch).toHaveBeenCalledWith(addFavorites(mockFavorite))
+  })
 })

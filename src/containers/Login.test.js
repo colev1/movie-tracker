@@ -45,6 +45,7 @@ describe('Login', () => {
 		expect(wrapper.state().newUser).toEqual(true)  
 	})
 
+
 	it('should set reset state if sign up is clicked', () => {
 		const spy = jest.spyOn(wrapper.instance(), 'resetState')
 		wrapper.find('button').at(1).simulate('click')
