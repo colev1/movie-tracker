@@ -1,11 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { SearchBar, mapDispatchToProps } from './SearchBar'
-import { searchMovies } from '../thunks/searchMovies'
+import * as actions from '../actions'
+import { searchMovies } from '../thunks/searchMovies';
 
 jest.mock('../thunks/searchMovies')
 
 describe('search bar', () => {
+	let mockSearch
+	let mockMovies
 	let wrapper
 	let mockSearchMovies
 
@@ -31,39 +34,39 @@ describe('search bar', () => {
 	})
 
 	it('should set state of search when search value is typed in', () => {
-		const mockEvent = {
+    const mockEvent = {
 			target: {
 				name: 'search',
 				value: 'harry potter'
 			}
-		}
-		const handleChangeSpy = jest.spyOn(wrapper.instance(), 'handleChange')
-		wrapper.instance().forceUpdate()
-		const input = wrapper.find('input').at(0)
-		input.simulate('change', mockEvent)
-		expect(handleChangeSpy).toHaveBeenCalled()
-		expect(wrapper.state().search).toEqual('harry potter')
-	})
+    }
+    const handleChangeSpy = jest.spyOn(wrapper.instance(), 'handleChange')
+    wrapper.instance().forceUpdate()
+    const input = wrapper.find('input').at(0)
+    input.simulate('change', mockEvent)
+    expect(handleChangeSpy).toHaveBeenCalled()
+    expect(wrapper.state().search).toEqual('harry potter')
+  })
 
-	it.skip('should reset state after submit button is clicked', ()=> {
-		const spy = jest.spyOn(wrapper.instance(), 'resetState')
-		wrapper.find('.search-btn').simulate('click')
+  it.skip('should reset state after submit button is clicked', ()=> {
+    const spy = jest.spyOn(wrapper.instance(), 'resetState')
+    wrapper.find('.search-btn').simulate('click')
 		expect(spy).toHaveBeenCalled()
-	})
+  })
 })
 
 describe('map dispatch to props', ()=> {
-	let mockDispatch
-	let mockSearch
+  let mockDispatch
+  let mockSearch
 
-	beforeEach(() => {
-		mockDispatch = jest.fn()
+  beforeEach(() => {
+    mockDispatch = jest.fn()
 		mockSearch = 'harry potter'
-	})
-	it('should call dispatch with the correct parameters for search movies', () => {
-		const actionToDispatch = searchMovies(mockSearch)
-		const result = mapDispatchToProps(mockDispatch)
-		result.searchMovies(mockSearch)
-		expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-	})
+  })
+  it('should call dispatch with the correct parameters for search movies', () => {
+    const actionToDispatch = searchMovies(mockSearch)
+    const result = mapDispatchToProps(mockDispatch)
+    result.searchMovies(mockSearch)
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
 })
