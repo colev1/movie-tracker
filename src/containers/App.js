@@ -6,11 +6,11 @@ import Login from './Login';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { fetchMovies } from '../thunks/fetchMovies'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import ErrorPage from '../components/ErrorPage';
 
 
 class App extends Component {
-
   async componentDidMount() {
     await this.props.fetchMovies()
   }
@@ -28,6 +28,13 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  movies: PropTypes.array.isRequired,
+  error: PropTypes.string.isRequired,
+  fetchMovies: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

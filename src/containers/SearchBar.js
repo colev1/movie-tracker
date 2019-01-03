@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './SearchBar.scss';
 import { searchMovies } from '../thunks/searchMovies';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   constructor() {
     super()
     this.state = {
@@ -41,14 +42,18 @@ class SearchBar extends Component {
             className="search-input"
             onChange={this.handleChange}
           />
-          <button>Search!</button>
+          <button className='search-btn'>Search!</button>
         </form>
       </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+SearchBar.propTypes = {
+  searchMovies: PropTypes.func.isRequired
+}
+
+export const mapDispatchToProps = (dispatch) => ({
   searchMovies: (search) => dispatch(searchMovies(search))
 })
 
