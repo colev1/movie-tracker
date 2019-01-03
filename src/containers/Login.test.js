@@ -22,6 +22,8 @@ describe('Login', () => {
 				loginUser = { jest.fn() }
 				fetchFavorites = { jest.fn() }
 				createUser = { jest.fn() }
+				error = { 'error' }
+				user = {{ name: 'Kylie', id: 1 }}
 			/>
 		)
 	})
@@ -45,7 +47,6 @@ describe('Login', () => {
 		expect(wrapper.state().newUser).toEqual(true)  
 	})
 
-
 	it('should set reset state if sign up is clicked', () => {
 		const spy = jest.spyOn(wrapper.instance(), 'resetState')
 		wrapper.find('button').at(1).simulate('click')
@@ -64,6 +65,33 @@ describe('Login', () => {
 		expect(handleChangeSpy).toHaveBeenCalled()
 		expect(wrapper.state().email).toEqual('Cody@Cole.com')
 	})
+
+	it('should set an error message in state if props.error is true', () => {
+		wrapper.setState({ errorMessage: false })
+		wrapper.instance().handleServerResponse()
+		expect(wrapper.instance().state.errorMessage).toEqual(true)
+	})
+
+	it('should set an error message in state if props.error is true', () => {
+		wrapper.instance().handleServerResponse()
+		expect(wrapper.instance().state.errorMessage).toEqual(true)
+	})
+
+	it('should call fetchFavorites if props.error is false', () => {
+		wrapper = shallow(
+			<Login
+				loginUser = { jest.fn() }
+				fetchFavorites = { jest.fn() }
+				createUser = { jest.fn() }
+				error = { '' }
+				user = {{ name: 'Kylie', id: 1 }}
+				history = { [] }
+			/>
+		)
+		wrapper.instance().handleServerResponse()
+		expect(wrapper.instance().props.fetchFavorites).toHaveBeenCalled()
+	})
+
 
 	describe('mapStateToProps', () => {
 		it('should return an object with a user', () => {
