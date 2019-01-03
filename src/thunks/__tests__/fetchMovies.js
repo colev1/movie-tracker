@@ -1,5 +1,6 @@
 import { fetchMovies } from '../fetchMovies'
-import { isLoading, hasErrored, fetchMovieSuccess } from '../../actions'
+import { isLoading, hasErrored, fetchMoviesSuccess } from '../../actions'
+import * as helper from '../../helper'
 
 
 describe('fetchMovies', () => {
@@ -41,5 +42,39 @@ describe('fetchMovies', () => {
     await thunk(mockDispatch)
     
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
+  })
+
+  it('should dispatch cleanMovies if response is ok', async () => {
+    const mockMovie = {movie: 'movie1'}
+    helper.cleanMovies = jest.fn().mockImplementation(() => mockMovie)
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        result: mockMovie
+      })
+    }))
+    const thunk = fetchMovies()
+    
+    await thunk(mockDispatch)
+
+    expect(helper.cleanMovies).toHaveBeenCalled()
+  })
+
+  it('should dispatch fetchMovieSuccess if response is ok', async () => {
+    const mockMovie = {movie: 'movie1'}
+    helper.cleanMovies = jest.fn().mockImplementation(() => mockMovie)
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        result: mockMovie
+      })
+    }))
+    const thunk = fetchMovies()
+    
+    await thunk(mockDispatch)
+
+    expect(mockDispatch).toHaveBeenCalledWith(fetchMoviesSuccess(mockMovie))
   })
 })
