@@ -50,5 +50,8 @@ In the movie-tracker directory, you can run the test files using:
 
 ![Second screenshot of app](app2.png)
 
-
+#### Contributors
+* Cole Vanacore: https://github.com/colev1
+* Kylie Stanley: https://github.com/kyliestanley
+* Cody Price: https://github.com/cody-price
 
