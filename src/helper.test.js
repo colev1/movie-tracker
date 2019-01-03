@@ -1,4 +1,4 @@
-import {cleanMovies, SQLsearchString } from './helper'
+import {cleanMovies, sqlSearchString } from './helper'
 
 describe('helper files', () => {
 	it('has method clean movies that takes in an array of movie and returns an array of cleaned movies', () => {
@@ -49,7 +49,7 @@ describe('helper files', () => {
   
 	it('has method SQL search string that returns a cleaned version of searched string', () => {
 		let mockSearch = 'Harry potter'
-		let result = SQLsearchString(mockSearch)
+		let result = sqlSearchString(mockSearch)
 		let expected = 'Harry%20potter'
 		expect(result).toEqual(expected)
 	})

@@ -56,12 +56,11 @@ describe('Card', () => {
 		expect(wrapper.instance().props.deleteFavoriteFromStore).toHaveBeenCalled()
 	})
 
-	it('should not display tooltip text if there is a user in store', () => {
-		expect(wrapper.find('button').props()['data-tooltip']).toBe(null)
+	it('should have button with a class favoriteClass if a use is in store', () => {
+		expect(wrapper.find('button').hasClass('favorite-movie favorite-btn')).toEqual(true)
 	})
 
-	it('should display "must be signed in" if there is no user in store', () => {
-		let tooltipText = 'Must be signed in to favorite movies'
+	it('should link to the login if use is not signed in', () => {
 		let wrapper = shallow(
 			<Card
 				movie={ mockMovie }
@@ -72,7 +71,9 @@ describe('Card', () => {
 				deleteFavoriteFromStore = { jest.fn() }
 			/>
 		)
-		expect(wrapper.find('button').props()['data-tooltip']).toBe(tooltipText)
+
+		expect(wrapper.find('Link').prop('to')).toEqual('/login');
+
 	})
 
 	describe('mapStateToProps', () => {
