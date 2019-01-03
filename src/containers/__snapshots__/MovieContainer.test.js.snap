@@ -4,6 +4,7 @@ exports[`MovieContainer should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <MovieContainer
+    error=""
     favorites={
       Array [
         Object {
@@ -16,6 +17,7 @@ ShallowWrapper {
         },
       ]
     }
+    isLoading={false}
     match={
       Object {
         "path": "/",

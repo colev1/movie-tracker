@@ -1,5 +1,5 @@
 import { loginUser } from '../loginUser'
-import { isLoading, hasErrored, searchMovieSuccess } from '../../actions'
+import { isLoading, hasErrored, searchMovieSuccess, loginUserAction } from '../../actions'
 import { cleanMovies, SQLsearchString } from '../../helper'
 
 jest.mock('../../helper')
@@ -43,5 +43,37 @@ describe('fetchMovies', () => {
     await thunk(mockDispatch)
     
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
+  })
+
+  it('should dispatch hasErrored("") if the response is ok', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        data: 'data'
+      })
+    }))
+    
+    const thunk = loginUser()
+    
+    await thunk(mockDispatch)
+    
+    expect(mockDispatch).toHaveBeenCalledWith(hasErrored(''))
+  })
+
+  it('should dispatch loginUserAction if the response is ok', async () => {
+    const mockUser = { name: 'Kylie', id: 1 }
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        data: mockUser
+      })
+    }))
+    
+    const thunk = loginUser()
+    
+    await thunk(mockDispatch)
+    
+    expect(mockDispatch).toHaveBeenCalledWith(loginUserAction(mockUser))
   })
 })
