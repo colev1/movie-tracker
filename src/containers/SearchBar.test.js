@@ -8,6 +8,8 @@ jest.mock('../thunks/searchMovies')
 describe('search bar', () => {
 	let wrapper
 	let mockSearchMovies
+	let mockSearch
+	let mockMovies
 
 	beforeEach(() => {
 		mockMovies = [{ title: 'movie1', movie_id: 1}, {title: 'movie2', movie_id: 2}, {title: 'movie3', movie_id: 3 }]
