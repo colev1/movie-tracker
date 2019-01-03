@@ -64,6 +64,7 @@ $acme-font: 'Acme', sans-serif;
 }
 
 .favorite-btn {
+  z-index: 5;
   left: 200px;
   position: absolute;
   top: 9px;
